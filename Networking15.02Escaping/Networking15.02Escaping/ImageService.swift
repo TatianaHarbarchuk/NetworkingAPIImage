@@ -7,19 +7,24 @@
 
 import Foundation
 
-var images: Image?
-
 struct ImageService {
     
-    func fetchingAPIImages(matching query: String, completion: @escaping () -> ()) {
+    private struct Constant {
+        
+        static let scheme = "https"
+        static let host = "pixabay.com"
+        static let path = "/api"
+        static let apiKey = "32828521-f057d7007ce70179fd3955d93"
+    }
+    
+    func fetchingAPIImages(matching query: String, completion: @escaping (Image) -> ())  {
         var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "pixabay.com"
-        urlComponents.path = "/api"
+        urlComponents.scheme = Constant.scheme
+        urlComponents.host = Constant.host
+        urlComponents.path = Constant.path
         urlComponents.queryItems = [
-            URLQueryItem(name: "key", value: "32828521-f057d7007ce70179fd3955d93"),
-            URLQueryItem(name: "q", value: query),
-            //                URLQueryItem(name: "image_type", value: query)
+            URLQueryItem(name: "key", value: Constant.apiKey),
+            URLQueryItem(name: "q", value: query)
         ]
         let url = urlComponents.url
         let session = URLSession.shared
@@ -27,10 +32,9 @@ struct ImageService {
         let dataTask = session.dataTask(with: url!) { data, response, error in
             if error == nil {
                 do {
-                    images = try JSONDecoder().decode(Image.self, from: data!)
-                    //completion(fetchingData)
+                    let imagesJ = try JSONDecoder().decode(Image.self, from: data!)
                     DispatchQueue.main.async {
-                        completion()
+                        completion(imagesJ)
                     }
                 } catch {
                     print("Parsing Error")
@@ -39,5 +43,4 @@ struct ImageService {
         }
         dataTask.resume()
     }
-    
 }

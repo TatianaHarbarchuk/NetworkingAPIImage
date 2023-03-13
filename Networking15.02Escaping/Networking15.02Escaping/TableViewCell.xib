@@ -43,7 +43,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
-                <outlet property="imageViewCell" destination="25C-LC-f1D" id="b7h-7q-uHM"/>
+                <outlet property="imageViewCell" destination="25C-LC-f1D" id="TiD-rf-hdK"/>
             </connections>
             <point key="canvasLocation" x="186.23188405797103" y="48.883928571428569"/>
         </tableViewCell>

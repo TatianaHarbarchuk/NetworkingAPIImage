@@ -7,22 +7,31 @@
 
 import UIKit
 
-//MARK: - висота ячейки залежить від методу делегата heighForRawIndexPAth
-//MARK: - ширина ячейки залежить від ширини таблиці 
-
 class TableViewCell: UITableViewCell {
-
-
-    @IBOutlet weak var titleLabel: UILabel!
+    
+    
     @IBOutlet weak var imageViewCell: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        setup()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+    }
+    
+    func configureWith(model webformatURL: String) {
+        
+        imageViewCell.imageFromURL(webformatURL)
+    }
+    
+    private func setup() {
+        imageViewCell.translatesAutoresizingMaskIntoConstraints = false
+        imageViewCell.contentMode = .scaleToFill
+        imageViewCell.clipsToBounds = true
+        imageViewCell.contentMode = .bottomRight
     }
     
 }
