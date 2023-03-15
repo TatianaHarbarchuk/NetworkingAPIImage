@@ -24,7 +24,7 @@ class ImageListController: UIViewController, UISearchBarDelegate {
         self.setup()
     }
     
-    private func setup() {
+    fileprivate func setup() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.searchBar.delegate = self
@@ -33,27 +33,23 @@ class ImageListController: UIViewController, UISearchBarDelegate {
         self.loadImage()
         self.tableView.register(UINib(nibName: Constants.identifier, bundle: nil), forCellReuseIdentifier: "cell")
     }
-
-    func loadImageAPI(matching: String, completion: @escaping (Image) -> ()) {
-        
-        ImageService().fetchingAPIImages(matching: matching, completion: completion)
-    }
-    //MARK: - Load Image Service
-    private func loadImage() {
-        loadImageAPI(matching: "yellow") { result in
+    //MARK: - Load Image API
+    private func loadImageAPI(text: String) {
+        ImageService().fetchingAPIImages(matching: text) { result in
             self.images = result
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
     }
+    //MARK: - Load Image Service
+    private func loadImage() {
+        loadImageAPI(text: "yellow")
+    }
     //MARK: - Realize searchBarSearchButtonClicked
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        loadImageAPI(matching: searchBar.text ?? "") { result in
-            self.images = result
-            self.tableView.reloadData()
-            searchBar.resignFirstResponder()
-        }
+        loadImageAPI(text: searchBar.text ?? "")
+        searchBar.resignFirstResponder()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
