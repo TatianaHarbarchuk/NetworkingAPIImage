@@ -31,9 +31,9 @@ struct ImageService {
         let dataTask = session.dataTask(with: url!) { data, response, error in
             if error == nil {
                 do {
-                    let imagesJ = try JSONDecoder().decode(Image.self, from: data!)
+                    let imageModel = try JSONDecoder().decode(Image.self, from: data!)
                     DispatchQueue.main.async {
-                        completion(imagesJ)
+                        completion(imageModel)
                     }
                 } catch {
                     print("Parsing Error")

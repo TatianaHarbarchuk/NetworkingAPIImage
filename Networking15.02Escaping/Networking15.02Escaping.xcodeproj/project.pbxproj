@@ -76,8 +76,7 @@
 				390FD817299D36C00035374F /* LaunchScreen.storyboard */,
 				390FD81A299D36C00035374F /* Info.plist */,
 				390FD826299EB1D90035374F /* ImageService.swift */,
-				390FD828299FBBA30035374F /* TableViewCell.swift */,
-				390FD829299FBBA30035374F /* TableViewCell.xib */,
+				39AC369D29C37838008BD436 /* ImageCell */,
 			);
 			path = Networking15.02Escaping;
 			sourceTree = "<group>";
@@ -96,6 +95,15 @@
 				390FD820299D373C0035374F /* Model.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		39AC369D29C37838008BD436 /* ImageCell */ = {
+			isa = PBXGroup;
+			children = (
+				390FD829299FBBA30035374F /* TableViewCell.xib */,
+				390FD828299FBBA30035374F /* TableViewCell.swift */,
+			);
+			path = ImageCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
