@@ -11,6 +11,7 @@ class ImageListController: UIViewController, UISearchBarDelegate {
     
     struct Constants {
         static let identifier = "TableViewCell"
+        static let text = "yellow"
     }
     
     private var images: Image?
@@ -24,13 +25,13 @@ class ImageListController: UIViewController, UISearchBarDelegate {
         self.setup()
     }
     
-    fileprivate func setup() {
+    private func setup() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.searchBar.delegate = self
         self.searchBar.showsCancelButton = true
         self.searchBar.returnKeyType = .search
-        self.loadImage()
+        self.loadImageAPI(text: Constants.text)
         self.tableView.register(UINib(nibName: Constants.identifier, bundle: nil), forCellReuseIdentifier: "cell")
     }
     //MARK: - Load Image API
@@ -41,10 +42,6 @@ class ImageListController: UIViewController, UISearchBarDelegate {
                 self.tableView.reloadData()
             }
         }
-    }
-    //MARK: - Load Image Service
-    private func loadImage() {
-        loadImageAPI(text: "yellow")
     }
     //MARK: - Realize searchBarSearchButtonClicked
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

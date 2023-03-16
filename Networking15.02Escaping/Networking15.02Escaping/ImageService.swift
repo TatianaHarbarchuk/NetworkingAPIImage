@@ -10,7 +10,6 @@ import Foundation
 struct ImageService {
     
     private struct Constant {
-        
         static let scheme = "https"
         static let host = "pixabay.com"
         static let path = "/api"
