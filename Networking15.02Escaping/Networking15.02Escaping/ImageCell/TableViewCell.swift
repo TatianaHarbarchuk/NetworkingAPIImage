@@ -24,6 +24,7 @@ class TableViewCell: UITableViewCell {
     
     func configureWith(model webformatURL: String) {
         imageViewCell.imageFromURL(webformatURL)
+        
     }
     
     private func setup() {
