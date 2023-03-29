@@ -7,10 +7,12 @@
 
 import UIKit
 
-class ImageListController: UIViewController, UISearchBarDelegate {
+class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDelegate {
     
     struct Constants {
         static let text = ""
+        static let noImages = "No images found"
+        static let enterImages = "Please enter text"
     }
     
     //MARK: - @IBOutlet
@@ -21,28 +23,42 @@ class ImageListController: UIViewController, UISearchBarDelegate {
     //MARK: - Properties
     private var fetchedImages: Image?
     private let emptyStateView = EmptyStateView(frame: .zero)
+    private var searchTextField = UITextField()
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setup()
+        self.setupActivityIndicator()
+        self.setupTableView()
+        self.setupSearchBar()
+        self.setupEmptyStateView()
     }
-    //MARK: - Setup func
-    private func setup() {
+    //MARK: - setupTableView
+    private func setupTableView() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.searchBar.delegate = self
-        self.searchBar.showsCancelButton = true
-        self.searchBar.returnKeyType = .search
         self.tableView.register(with: TableViewCell.self)
         self.tableView.addSubview(emptyStateView)
-        self.emptyStateView.setMessage("Please enter text")
+    }
+    //MARK: - setupSearchBar
+    private func setupSearchBar() {
+        self.searchBar.delegate = self
+        self.searchBar.searchTextField.delegate = self
+        self.searchBar.showsCancelButton = true
+        self.searchBar.returnKeyType = .search
+    }
+    //MARK: - setupEmptyStateView
+    private func setupEmptyStateView() {
+        self.emptyStateView.setMessage(Constants.enterImages)
         self.emptyStateView.frame = self.tableView.frame
-        self.setupActivityIndicator()
+    }
+    //MARK: - setupActivityIndicator
+    private func setupActivityIndicator() {
+        self.createActivityIndicator()
     }
     //MARK: - Setup Activity Indicator
-    func setupActivityIndicator() {
+    private func createActivityIndicator() {
         indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         indicator.style = UIActivityIndicatorView.Style.medium
         indicator.center = self.tableView.center
@@ -55,10 +71,7 @@ class ImageListController: UIViewController, UISearchBarDelegate {
             self.fetchedImages = result
             DispatchQueue.main.async {
                 if self.fetchedImages?.hits.isEmpty ?? true {
-                    self.tableView.reloadData()
-                    self.fetchedImages = nil
-                    self.emptyStateView.isHidden = false
-                    self.emptyStateView.setMessage("No images found")
+                    self.showEmptyViewNoImages(matching: Constants.noImages)
                 } else {
                     self.emptyStateView.isHidden = true
                     self.tableView.isHidden = false
@@ -75,15 +88,25 @@ class ImageListController: UIViewController, UISearchBarDelegate {
     private func stopActivityIndicator() {
         indicator.stopAnimating()
     }
-    //MARK: - Realize searchBarSearchButtonClicked
+    //MARK: - Func showEmptyViewNoImages
+    private func showEmptyViewNoImages(matching text: String) {
+        self.tableView.reloadData()
+        self.fetchedImages = nil
+        self.emptyStateView.isHidden = false
+        self.emptyStateView.setMessage(text)
+    }
+    //MARK: - Func showEmptyView
+    private func showEmptyViewWithImages(matching text: String) {
+        self.fetchedImages = nil
+        self.tableView.reloadData()
+        self.emptyStateView.isHidden = false
+        self.emptyStateView.setMessage(text)
+    }
+    //MARK: - Func searchBarSearchButtonClicked
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchBarText = searchBar.text else { return }
         if searchBarText.isEmpty {
-            self.fetchedImages = nil
-            self.tableView.reloadData()
-            self.tableView.isHidden = false
-            emptyStateView.isHidden = false
-            emptyStateView.setMessage("Please enter text")
+            showEmptyViewWithImages(matching: Constants.enterImages)
         } else  {
             tableView.isHidden = false
             emptyStateView.isHidden = true
@@ -92,8 +115,15 @@ class ImageListController: UIViewController, UISearchBarDelegate {
         }
         searchBar.resignFirstResponder()
     }
+    //MARK: - Func searchBarCancelButtonClicked
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+    }
+    //MARK: - Func textFieldShouldClear
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        searchBar.searchTextField.clearButtonMode = .whileEditing
+        showEmptyViewWithImages(matching: Constants.enterImages)
+        return true
     }
 }
 
@@ -104,7 +134,7 @@ extension ImageListController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         if let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TableViewCell.self), for: indexPath) as? TableViewCell {
             guard let image = fetchedImages?.hits else { return cell }
             cell.configureWith(model: image[indexPath.row].webformatURL)
@@ -125,6 +155,7 @@ extension UITableView {
         register(UINib(nibName: String(describing: cellType), bundle: nil), forCellReuseIdentifier: String(describing: cellType))
     }
 }
+
 
 
 
