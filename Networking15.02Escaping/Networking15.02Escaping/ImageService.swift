@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 struct ImageService {
-
+    
     private struct Constant {
         static let scheme = "https"
         static let host = "pixabay.com"
@@ -28,14 +28,12 @@ struct ImageService {
         ]
         let url = urlComponents.url
         let session = URLSession.shared
-
+        
         let dataTask = session.dataTask(with: url!) { data, response, error in
             if error == nil {
                 do {
                     let imageModel = try JSONDecoder().decode(Image.self, from: data!)
-                    DispatchQueue.main.async {
-                        completion(imageModel)
-                    }
+                    completion(imageModel)
                 } catch {
                     print("Parsing Error")
                 }

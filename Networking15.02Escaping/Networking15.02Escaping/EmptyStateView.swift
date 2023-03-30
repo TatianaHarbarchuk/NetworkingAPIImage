@@ -10,7 +10,7 @@ import UIKit
 
 class EmptyStateView: UIView {
     
-    var messageLabel = UILabel()
+    private var messageLabel = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,11 +30,13 @@ class EmptyStateView: UIView {
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(messageLabel)
         NSLayoutConstraint.activate([
-            messageLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            messageLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
+            messageLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
+            messageLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            messageLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            messageLabel.topAnchor.constraint(equalTo: topAnchor)
         ])
     }
-    
+
     //MARK: - setMessage
     func setMessage(_ message: String) {
         messageLabel.text = message

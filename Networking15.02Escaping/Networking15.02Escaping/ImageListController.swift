@@ -10,9 +10,9 @@ import UIKit
 class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDelegate {
     
     struct Constants {
-        static let text = ""
         static let noImages = "No images found"
         static let enterImages = "Please enter text..."
+        static let indicatorSize: CGFloat = 40
     }
     
     //MARK: - @IBOutlet
@@ -29,10 +29,19 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setupActivityIndicator()
         self.setupTableView()
         self.setupSearchBar()
         self.setupEmptyStateView()
+        self.setupGestureRecognizer()
+    }
+    
+    //MARK: - Setup Gesture Recognizer
+    private func setupGestureRecognizer() {
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
+    }
+    
+    @objc private func hideKeyboard() {
+        self.view.endEditing(true)
     }
     
     //MARK: - setupTableView
@@ -40,7 +49,8 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(with: TableViewCell.self)
-        self.tableView.addSubview(emptyStateView)
+        self.view.addSubview(emptyStateView)
+        self.createActivityIndicator()
     }
     
     //MARK: - setupSearchBar
@@ -53,18 +63,19 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
     
     //MARK: - setupEmptyStateView
     private func setupEmptyStateView() {
+        emptyStateView.translatesAutoresizingMaskIntoConstraints = false
         self.emptyStateView.setMessage(Constants.enterImages)
-        self.emptyStateView.frame = self.tableView.frame
+        NSLayoutConstraint.activate([
+            emptyStateView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            emptyStateView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            emptyStateView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            emptyStateView.topAnchor.constraint(equalTo: searchBar.bottomAnchor)
+        ])
     }
     
-    //MARK: - setupActivityIndicator
-    private func setupActivityIndicator() {
-        self.createActivityIndicator()
-    }
-    
-    //MARK: - Setup Activity Indicator
+    //MARK: - createActivityIndicator
     private func createActivityIndicator() {
-        indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        indicator = UIActivityIndicatorView(frame: CGRect(x: .zero, y: .zero, width: Constants.indicatorSize, height: Constants.indicatorSize))
         indicator.style = UIActivityIndicatorView.Style.medium
         indicator.center = self.tableView.center
         indicator.hidesWhenStopped = true
@@ -73,41 +84,31 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
     
     //MARK: - Load Images
     private func loadImages(matching searchText: String) {
-        ImageService().fetchingAPIImages(matching: searchText) { result in
-            self.fetchedImages = result
+        self.indicator.startAnimating()
+        ImageService().fetchingAPIImages(matching: searchText) { [weak self] result in
+            self?.fetchedImages = result
             DispatchQueue.main.async {
-                if self.fetchedImages?.hits.isEmpty ?? true {
-                    self.showEmptyViewNoImages(matching: Constants.noImages)
+                if self?.fetchedImages?.hits.isEmpty ?? true {
+                    self?.showEmptyView(withImages: false, matching: Constants.noImages)
                 } else {
-                    self.emptyStateView.isHidden = true
-                    self.tableView.isHidden = false
-                    self.tableView.reloadData()
+                    self?.emptyStateView.isHidden = true
+                    self?.tableView.isHidden = false
+                    self?.tableView.reloadData()
                 }
-                self.stopActivityIndicator()
+                self?.indicator.stopAnimating()
             }
         }
     }
     
-    //MARK: - Activity Indicator
-    private func startActivityIndicator() {
-        indicator.startAnimating()
-    }
-    private func stopActivityIndicator() {
-        indicator.stopAnimating()
-    }
-    
-    //MARK: - Func showEmptyViewNoImages
-    private func showEmptyViewNoImages(matching text: String) {
-        self.tableView.reloadData()
-        self.fetchedImages = nil
-        self.emptyStateView.isHidden = false
-        self.emptyStateView.setMessage(text)
-    }
-    
-    //MARK: - Func showEmptyView
-    private func showEmptyViewWithImages(matching text: String) {
-        self.fetchedImages = nil
-        self.tableView.reloadData()
+    //MARK: - Func showEmptyViewWithoutImagesText
+    private func showEmptyView(withImages: Bool, matching text: String) {
+        if withImages {
+            self.fetchedImages = nil
+            self.tableView.reloadData()
+        } else {
+            self.tableView.reloadData()
+            self.fetchedImages = nil
+        }
         self.emptyStateView.isHidden = false
         self.emptyStateView.setMessage(text)
     }
@@ -116,11 +117,10 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchBarText = searchBar.text else { return }
         if searchBarText.isEmpty {
-            showEmptyViewWithImages(matching: Constants.enterImages)
+            showEmptyView(withImages: true, matching: Constants.enterImages)
         } else  {
             tableView.isHidden = false
             emptyStateView.isHidden = true
-            self.startActivityIndicator()
             loadImages(matching: searchBarText)
         }
         searchBar.resignFirstResponder()
@@ -134,7 +134,7 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
     //MARK: - Func textFieldShouldClear
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         searchBar.searchTextField.clearButtonMode = .whileEditing
-        showEmptyViewWithImages(matching: Constants.enterImages)
+        showEmptyView(withImages: true, matching: Constants.enterImages)
         return true
     }
 }
@@ -160,14 +160,3 @@ extension ImageListController: UITableViewDelegate, UITableViewDataSource {
         return UIScreen.main.bounds.width
     }
 }
-
-
-extension UITableView {
-    func register<T: UITableViewCell>(with cellType: T.Type) {
-        register(UINib(nibName: String(describing: cellType), bundle: nil), forCellReuseIdentifier: String(describing: cellType))
-    }
-}
-
-
-
-
