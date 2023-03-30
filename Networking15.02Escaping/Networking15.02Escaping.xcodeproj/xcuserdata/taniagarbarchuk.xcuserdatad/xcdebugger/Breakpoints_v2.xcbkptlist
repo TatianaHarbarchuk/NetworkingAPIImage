@@ -7,71 +7,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "48F86E39-601A-4072-A120-C9656F5DABE6"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Networking15.02Escaping/EmptyStateView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
-            landmarkName = "init(frame:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "48F86E39-601A-4072-A120-C9656F5DABE6 - f6684aeb8f77acf1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Networking15_02Escaping.EmptyStateView.__allocating_init(frame: __C.CGRect) -&gt; Networking15_02Escaping.EmptyStateView"
-                  moduleName = "Networking15.02Escaping"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/taniagarbarchuk/Dekstop/test3/Networking15.02Escaping/Networking15.02Escaping/EmptyStateView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "32">
-               </Location>
-               <Location
-                  uuid = "48F86E39-601A-4072-A120-C9656F5DABE6 - 7dcee6535e572a7c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Networking15_02Escaping.EmptyStateView.init(frame: __C.CGRect) -&gt; Networking15_02Escaping.EmptyStateView"
-                  moduleName = "Networking15.02Escaping"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/taniagarbarchuk/Dekstop/test3/Networking15.02Escaping/Networking15.02Escaping/EmptyStateView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
-                  offsetFromSymbolStart = "92">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "F39743DE-D5FA-45D0-A555-A39141D861F8"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Networking15.02Escaping/EmptyStateView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
-            landmarkName = "init(frame:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2E8C3276-99C5-46E8-89DA-2F5C4506783C"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -87,6 +23,22 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            uuid = "2E8C3276-99C5-46E8-89DA-2F5C4506783C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Networking15.02Escaping/EmptyStateView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "init(frame:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
             uuid = "9DF2D7FA-985D-4EC7-8AA4-0771BDFE14CF"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -94,10 +46,10 @@
             filePath = "Networking15.02Escaping/EmptyStateView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "EmptyStateView"
-            landmarkType = "3">
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "init?(coder:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "9DF2D7FA-985D-4EC7-8AA4-0771BDFE14CF - d413e13cb818cc4b"
@@ -142,8 +94,8 @@
             filePath = "Networking15.02Escaping/EmptyStateView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
             landmarkName = "init?(coder:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -158,8 +110,8 @@
             filePath = "Networking15.02Escaping/EmptyStateView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
             landmarkName = "init?(coder:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -174,9 +126,9 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
-            landmarkName = "searchBarSearchButtonClicked(_:)"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
+            landmarkName = "register(with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -190,10 +142,10 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "loadImages(matching:)"
-            landmarkType = "7">
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -206,10 +158,10 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "loadImages(matching:)"
-            landmarkType = "7">
+            startingLineNumber = "143"
+            endingLineNumber = "143"
+            landmarkName = "ImageListController"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -222,9 +174,9 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "searchBarSearchButtonClicked(_:)"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
+            landmarkName = "register(with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -238,10 +190,10 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "searchBarSearchButtonClicked(_:)"
-            landmarkType = "7">
+            startingLineNumber = "170"
+            endingLineNumber = "170"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

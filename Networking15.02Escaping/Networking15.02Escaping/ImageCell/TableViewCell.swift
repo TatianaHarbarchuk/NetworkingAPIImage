@@ -9,29 +9,28 @@ import UIKit
 
 class TableViewCell: UITableViewCell {
     
-    
     @IBOutlet private weak var imageViewCell: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         setup()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-    }
-    
-    func configureWith(model webformatURL: String) {
-        imageViewCell.imageFromURL(webformatURL)
         
     }
-    
+    //MARK: - Configure with model
+    func configureWith(model webformatURL: String) {
+        imageViewCell.imageFromURL(webformatURL)
+    }
+    //MARK: - Setup func
     private func setup() {
         imageViewCell.translatesAutoresizingMaskIntoConstraints = false
         imageViewCell.contentMode = .scaleToFill
         imageViewCell.clipsToBounds = true
         imageViewCell.contentMode = .bottomRight
+        imageViewCell.layer.cornerRadius = 64
     }
-    
 }

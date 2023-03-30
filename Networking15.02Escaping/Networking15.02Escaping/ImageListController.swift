@@ -12,18 +12,18 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
     struct Constants {
         static let text = ""
         static let noImages = "No images found"
-        static let enterImages = "Please enter text"
+        static let enterImages = "Please enter text..."
     }
     
     //MARK: - @IBOutlet
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var searchBar: UISearchBar!
-    private var indicator = UIActivityIndicatorView()
     
     //MARK: - Properties
     private var fetchedImages: Image?
     private let emptyStateView = EmptyStateView(frame: .zero)
     private var searchTextField = UITextField()
+    private var indicator = UIActivityIndicatorView()
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -34,6 +34,7 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
         self.setupSearchBar()
         self.setupEmptyStateView()
     }
+    
     //MARK: - setupTableView
     private func setupTableView() {
         self.tableView.delegate = self
@@ -41,6 +42,7 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
         self.tableView.register(with: TableViewCell.self)
         self.tableView.addSubview(emptyStateView)
     }
+    
     //MARK: - setupSearchBar
     private func setupSearchBar() {
         self.searchBar.delegate = self
@@ -48,15 +50,18 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
         self.searchBar.showsCancelButton = true
         self.searchBar.returnKeyType = .search
     }
+    
     //MARK: - setupEmptyStateView
     private func setupEmptyStateView() {
         self.emptyStateView.setMessage(Constants.enterImages)
         self.emptyStateView.frame = self.tableView.frame
     }
+    
     //MARK: - setupActivityIndicator
     private func setupActivityIndicator() {
         self.createActivityIndicator()
     }
+    
     //MARK: - Setup Activity Indicator
     private func createActivityIndicator() {
         indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
@@ -65,6 +70,7 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
         indicator.hidesWhenStopped = true
         self.view.addSubview(indicator)
     }
+    
     //MARK: - Load Images
     private func loadImages(matching searchText: String) {
         ImageService().fetchingAPIImages(matching: searchText) { result in
@@ -81,6 +87,7 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
             }
         }
     }
+    
     //MARK: - Activity Indicator
     private func startActivityIndicator() {
         indicator.startAnimating()
@@ -88,6 +95,7 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
     private func stopActivityIndicator() {
         indicator.stopAnimating()
     }
+    
     //MARK: - Func showEmptyViewNoImages
     private func showEmptyViewNoImages(matching text: String) {
         self.tableView.reloadData()
@@ -95,6 +103,7 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
         self.emptyStateView.isHidden = false
         self.emptyStateView.setMessage(text)
     }
+    
     //MARK: - Func showEmptyView
     private func showEmptyViewWithImages(matching text: String) {
         self.fetchedImages = nil
@@ -102,6 +111,7 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
         self.emptyStateView.isHidden = false
         self.emptyStateView.setMessage(text)
     }
+    
     //MARK: - Func searchBarSearchButtonClicked
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchBarText = searchBar.text else { return }
@@ -115,10 +125,12 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
         }
         searchBar.resignFirstResponder()
     }
+    
     //MARK: - Func searchBarCancelButtonClicked
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
+    
     //MARK: - Func textFieldShouldClear
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         searchBar.searchTextField.clearButtonMode = .whileEditing

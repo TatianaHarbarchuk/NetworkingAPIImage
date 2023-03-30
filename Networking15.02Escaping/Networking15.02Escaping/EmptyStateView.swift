@@ -11,6 +11,7 @@ import UIKit
 class EmptyStateView: UIView {
     
     var messageLabel = UILabel()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupEmptyView()
@@ -19,7 +20,9 @@ class EmptyStateView: UIView {
         super.init(coder: aDecoder)
         setupEmptyView()
     }
-    func setupEmptyView() {
+    
+    //MARK: - setupEmptyView
+    private func setupEmptyView() {
         backgroundColor = .clear
         messageLabel.textAlignment = .center
         messageLabel.textColor = .black
@@ -31,8 +34,9 @@ class EmptyStateView: UIView {
             messageLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
-    func setMessage(_ message: String) {
-            messageLabel.text = message
-        }
     
+    //MARK: - setMessage
+    func setMessage(_ message: String) {
+        messageLabel.text = message
+    }
 }

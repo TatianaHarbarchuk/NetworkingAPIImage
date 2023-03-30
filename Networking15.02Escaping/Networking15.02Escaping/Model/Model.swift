@@ -29,7 +29,7 @@ struct Hit: Codable {
     let userID: Int
     let user: String
     let userImageURL: String
-
+    
     enum CodingKeys: String, CodingKey {
         case id, pageURL, type, tags, previewURL, previewWidth, previewHeight, webformatURL, webformatWidth, webformatHeight, largeImageURL, imageWidth, imageHeight, imageSize, views, downloads, collections, likes, comments
         case userID = "user_id"
