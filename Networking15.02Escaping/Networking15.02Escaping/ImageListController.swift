@@ -10,8 +10,6 @@ import UIKit
 class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDelegate {
     
     struct Constants {
-        static let noImages = "No images found"
-        static let enterImages = "Please enter text..."
         static let indicatorSize: CGFloat = 40
     }
     
@@ -64,7 +62,7 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
     //MARK: - setupEmptyStateView
     private func setupEmptyStateView() {
         emptyStateView.translatesAutoresizingMaskIntoConstraints = false
-        self.emptyStateView.setMessage(Constants.enterImages)
+        self.emptyStateView.setMessage(ImageListController.EmptyViewImages.noImagesAtAll.emptyText, emptyImage: ImageListController.EmptyViewImages.noImagesAtAll.emptyImageView)
         NSLayoutConstraint.activate([
             emptyStateView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             emptyStateView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -89,7 +87,7 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
             self?.fetchedImages = result
             DispatchQueue.main.async {
                 if self?.fetchedImages?.hits.isEmpty ?? true {
-                    self?.showEmptyView(withImages: false, matching: Constants.noImages)
+                    self?.showEmptyView(withImages: .notExistingImages)//false
                 } else {
                     self?.emptyStateView.isHidden = true
                     self?.tableView.isHidden = false
@@ -100,24 +98,34 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
         }
     }
     
-    //MARK: - Func showEmptyViewWithoutImagesText
-    private func showEmptyView(withImages: Bool, matching text: String) {
-        if withImages {
+    //MARK: - Enum EmptyViewImages
+    enum EmptyViewImages  {
+        case notExistingImages
+        case noImagesAtAll
+    }
+    
+    //MARK: - Func showEmptyView
+    private func showEmptyView(withImages images: ImageListController.EmptyViewImages) {
+        switch images {
+        case .notExistingImages:
+            self.tableView.reloadData()
+            self.fetchedImages = nil
+            emptyStateView.emptyStateImageView.image = images.emptyImageView.image
+            emptyStateView.messageLabel.text = images.emptyText
+        case .noImagesAtAll:
             self.fetchedImages = nil
             self.tableView.reloadData()
-        } else {
-            self.tableView.reloadData()
-            self.fetchedImages = nil
+            emptyStateView.emptyStateImageView.image = images.emptyImageView.image
+            emptyStateView.messageLabel.text = images.emptyText
         }
         self.emptyStateView.isHidden = false
-        self.emptyStateView.setMessage(text)
     }
     
     //MARK: - Func searchBarSearchButtonClicked
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchBarText = searchBar.text else { return }
         if searchBarText.isEmpty {
-            showEmptyView(withImages: true, matching: Constants.enterImages)
+            showEmptyView(withImages: .noImagesAtAll)
         } else  {
             tableView.isHidden = false
             emptyStateView.isHidden = true
@@ -134,7 +142,7 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
     //MARK: - Func textFieldShouldClear
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         searchBar.searchTextField.clearButtonMode = .whileEditing
-        showEmptyView(withImages: true, matching: Constants.enterImages)
+        showEmptyView(withImages: .noImagesAtAll)
         return true
     }
 }

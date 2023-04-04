@@ -9,9 +9,10 @@ import UIKit
 
 class TableViewCell: UITableViewCell {
     
-    struct Constants {
-        static var cornerRadius = 64
+    private struct Constants {
+        static let cornerRadius: CGFloat = 64
     }
+    
     @IBOutlet private weak var imageViewCell: UIImageView!
     
     override func awakeFromNib() {
@@ -34,6 +35,6 @@ class TableViewCell: UITableViewCell {
         imageViewCell.contentMode = .scaleToFill
         imageViewCell.clipsToBounds = true
         imageViewCell.contentMode = .bottomRight
-        imageViewCell.layer.cornerRadius = CGFloat(Constants.cornerRadius)
+        imageViewCell.layer.cornerRadius = Constants.cornerRadius
     }
 }
