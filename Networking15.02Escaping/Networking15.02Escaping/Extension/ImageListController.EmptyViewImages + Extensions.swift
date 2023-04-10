@@ -17,13 +17,13 @@ extension ImageListController.EmptyViewImages: EmptyViewProtocol {
             return UIImageView(image: UIImage(named: "Please enter text"))
         }
     }
-
+    
     var emptyText: String {
         switch self {
         case .notExistingImages:
             return "No images found"
         case .noImagesAtAll:
-          return "Please enter text..."
+            return "Please enter text..."
         }
     }
 }

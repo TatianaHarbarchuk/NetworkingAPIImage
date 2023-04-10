@@ -10,7 +10,7 @@ import Foundation
 // MARK: - Image
 struct Image: Codable {
     let total, totalHits: Int
-    let hits: [Hit]
+    var hits: [Hit]
 }
 
 // MARK: - Hit

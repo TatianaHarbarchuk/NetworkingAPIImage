@@ -17,26 +17,29 @@ struct ImageService {
         static let apiKey = "32828521-f057d7007ce70179fd3955d93"
     }
     
-    func fetchingAPIImages(matching query: String, completion: @escaping (Image) -> ())  {
+    func fetchingAPIImages(matching query: String, perPage: Int, page: Int, completion: @escaping ([Hit]) -> ())  {
         var urlComponents = URLComponents()
         urlComponents.scheme = Constant.scheme
         urlComponents.host = Constant.host
         urlComponents.path = Constant.path
         urlComponents.queryItems = [
             URLQueryItem(name: "key", value: Constant.apiKey),
-            URLQueryItem(name: "q", value: query)
+            URLQueryItem(name: "q", value: query),
+            URLQueryItem(name: "per_page", value: String(perPage)),
+            URLQueryItem(name: "page", value: String(page)),
         ]
-        let url = urlComponents.url
+        
+        guard let url = urlComponents.url else { return }
         let session = URLSession.shared
         
-        let dataTask = session.dataTask(with: url!) { data, response, error in
+        let dataTask = session.dataTask(with: url) { data, response, error in
             if error == nil {
                 do {
                     guard let data = data else {
                         return
                     }
                     let imageModel = try JSONDecoder().decode(Image.self, from: data)
-                    completion(imageModel)
+                    completion(imageModel.hits)
                 } catch {
                     print("Parsing Error")
                 }

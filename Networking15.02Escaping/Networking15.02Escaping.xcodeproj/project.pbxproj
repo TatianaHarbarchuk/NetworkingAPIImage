@@ -83,12 +83,28 @@
 				390FD815299D36C00035374F /* Assets.xcassets */,
 				390FD817299D36C00035374F /* LaunchScreen.storyboard */,
 				390FD81A299D36C00035374F /* Info.plist */,
-				390FD826299EB1D90035374F /* ImageService.swift */,
+				3967A87729E0532D00FD7252 /* ImageService */,
 				39AC369D29C37838008BD436 /* ImageCell */,
-				39AC36A029C4B538008BD436 /* EmptyStateView.swift */,
-				3967A87229DC474600FD7252 /* EmptyViewProtocol.swift */,
+				3967A87629E0526200FD7252 /* EmptyState */,
 			);
 			path = Networking15.02Escaping;
+			sourceTree = "<group>";
+		};
+		3967A87629E0526200FD7252 /* EmptyState */ = {
+			isa = PBXGroup;
+			children = (
+				3967A87229DC474600FD7252 /* EmptyViewProtocol.swift */,
+				39AC36A029C4B538008BD436 /* EmptyStateView.swift */,
+			);
+			path = EmptyState;
+			sourceTree = "<group>";
+		};
+		3967A87729E0532D00FD7252 /* ImageService */ = {
+			isa = PBXGroup;
+			children = (
+				390FD826299EB1D90035374F /* ImageService.swift */,
+			);
+			path = ImageService;
 			sourceTree = "<group>";
 		};
 		399DB87929A7753B005777D6 /* Extension */ = {
