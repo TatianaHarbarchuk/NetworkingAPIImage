@@ -9,6 +9,6 @@ import Foundation
 import UIKit
 
 protocol EmptyViewProtocol {
-    var emptyText: String { get }
-    var emptyImageView: UIImageView { get }
+    var message: String { get }
+    var image: UIImage { get }
 }

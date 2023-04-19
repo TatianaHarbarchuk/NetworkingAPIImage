@@ -15,9 +15,10 @@ struct ImageService {
         static let host = "pixabay.com"
         static let path = "/api"
         static let apiKey = "32828521-f057d7007ce70179fd3955d93"
+        static let perPage = 30
     }
     
-    func fetchingAPIImages(matching query: String, perPage: Int, page: Int, completion: @escaping ([Hit]) -> ())  {
+    func fetchingAPIImages(matching query: String, perPage: Int, page: Int, completion: @escaping ([Hit], Error?) -> ())  {
         var urlComponents = URLComponents()
         urlComponents.scheme = Constant.scheme
         urlComponents.host = Constant.host
@@ -25,7 +26,7 @@ struct ImageService {
         urlComponents.queryItems = [
             URLQueryItem(name: "key", value: Constant.apiKey),
             URLQueryItem(name: "q", value: query),
-            URLQueryItem(name: "per_page", value: String(perPage)),
+            URLQueryItem(name: "per_page", value: String(Constant.perPage)),
             URLQueryItem(name: "page", value: String(page)),
         ]
         
@@ -39,9 +40,10 @@ struct ImageService {
                         return
                     }
                     let imageModel = try JSONDecoder().decode(Image.self, from: data)
-                    completion(imageModel.hits)
+                    completion(imageModel.hits, nil)
                 } catch {
-                    print("Parsing Error")
+                    print(error)
+                    completion([],error)
                 }
             }
         }

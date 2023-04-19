@@ -20,11 +20,10 @@ class TableViewCell: UITableViewCell {
         
         setup()
     }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
+    override func prepareForReuse() {
+        imageViewCell.image = nil
     }
+    
     //MARK: - Configure with model
     func configureWith(model webformatURL: String) {
         imageViewCell.imageFromURL(webformatURL)

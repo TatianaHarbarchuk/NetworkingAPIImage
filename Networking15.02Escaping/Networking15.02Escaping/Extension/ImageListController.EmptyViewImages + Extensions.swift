@@ -9,16 +9,17 @@ import Foundation
 import UIKit
 
 extension ImageListController.EmptyViewImages: EmptyViewProtocol {
-    var emptyImageView: UIImageView {
+    
+    var image: UIImage {
         switch self {
         case .notExistingImages:
-            return UIImageView(image: UIImage(named: "6134065"))
+            return UIImage(named: "No images found") ?? UIImage()
         case .noImagesAtAll:
-            return UIImageView(image: UIImage(named: "Please enter text"))
+            return UIImage(named: "Please enter text") ?? UIImage()
         }
     }
     
-    var emptyText: String {
+    var message: String {
         switch self {
         case .notExistingImages:
             return "No images found"
