@@ -20,7 +20,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MJm-aK-wl7">
                         <rect key="frame" x="0.0" y="-29" width="319" height="184"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="25C-LC-f1D">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="25C-LC-f1D">
                                 <rect key="frame" x="0.0" y="0.0" width="319" height="184"/>
                             </imageView>
                         </subviews>
@@ -43,7 +43,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
-                <outlet property="imageViewCell" destination="25C-LC-f1D" id="TiD-rf-hdK"/>
+                <outlet property="imageVCell" destination="25C-LC-f1D" id="Dr5-yR-Mbh"/>
             </connections>
             <point key="canvasLocation" x="186.23188405797103" y="48.883928571428569"/>
         </tableViewCell>

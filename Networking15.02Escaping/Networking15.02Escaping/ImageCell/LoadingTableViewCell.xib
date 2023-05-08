@@ -28,7 +28,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="loader" destination="y1R-kO-RZX" id="QHK-IG-p6x"/>
+                <outlet property="loader" destination="y1R-kO-RZX" id="OQe-cw-yd5"/>
             </connections>
             <point key="canvasLocation" x="139" y="82"/>
         </tableViewCell>

@@ -18,7 +18,8 @@ struct ImageService {
         static let perPage = 30
     }
     
-    func fetchingAPIImages(matching query: String, perPage: Int, page: Int, completion: @escaping ([Hit], Error?) -> ())  {
+    func fetchingAPIImages(matching query: String, page: Int, completion: @escaping ([Hit], Error?) -> ())  {
+        print("Page number \(page)")
         var urlComponents = URLComponents()
         urlComponents.scheme = Constant.scheme
         urlComponents.host = Constant.host

@@ -15,6 +15,7 @@ struct Image: Codable {
 
 // MARK: - Hit
 struct Hit: Codable {
+    var isFavourite: Bool?
     let id: Int
     let pageURL: String
     let type: String
@@ -31,7 +32,7 @@ struct Hit: Codable {
     let userImageURL: String
     
     enum CodingKeys: String, CodingKey {
-        case id, pageURL, type, tags, previewURL, previewWidth, previewHeight, webformatURL, webformatWidth, webformatHeight, largeImageURL, imageWidth, imageHeight, imageSize, views, downloads, collections, likes, comments
+        case isFavourite, id, pageURL, type, tags, previewURL, previewWidth, previewHeight, webformatURL, webformatWidth, webformatHeight, largeImageURL, imageWidth, imageHeight, imageSize, views, downloads, collections, likes, comments
         case userID = "user_id"
         case user, userImageURL
     }

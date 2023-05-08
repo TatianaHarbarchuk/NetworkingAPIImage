@@ -13,7 +13,7 @@ class TableViewCell: UITableViewCell {
         static let cornerRadius: CGFloat = 64
     }
     
-    @IBOutlet private weak var imageViewCell: UIImageView!
+    @IBOutlet private var imageVCell: UIImageView?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,19 +21,20 @@ class TableViewCell: UITableViewCell {
         setup()
     }
     override func prepareForReuse() {
-        imageViewCell.image = nil
+        super.prepareForReuse()
+        imageVCell?.image = nil
     }
     
     //MARK: - Configure with model
     func configureWith(model webformatURL: String) {
-        imageViewCell.imageFromURL(webformatURL)
+        imageVCell?.imageFromURL(webformatURL)
     }
     //MARK: - Setup func
     private func setup() {
-        imageViewCell.translatesAutoresizingMaskIntoConstraints = false
-        imageViewCell.contentMode = .scaleToFill
-        imageViewCell.clipsToBounds = true
-        imageViewCell.contentMode = .bottomRight
-        imageViewCell.layer.cornerRadius = Constants.cornerRadius
+        imageVCell?.translatesAutoresizingMaskIntoConstraints = false
+        imageVCell?.contentMode = .scaleToFill
+        imageVCell?.clipsToBounds = true
+        imageVCell?.contentMode = .bottomRight
+        imageVCell?.layer.cornerRadius = Constants.cornerRadius
     }
 }

@@ -8,37 +8,44 @@
 import UIKit
 
 class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDelegate {
-    
     //MARK: - Constants
-    struct Constants {
+    private struct Constants {
         static let indicatorSize: CGFloat = 40
-        static let text = ""
-        static let imagesPerPage = 30
         static let heightCell: CGFloat = 60
     }
     
     //MARK: - @IBOutlet
-    @IBOutlet private weak var tableView: UITableView!
-    @IBOutlet private weak var searchBar: UISearchBar!
+    @IBOutlet private var tableView: UITableView?
     
     //MARK: - Properties
     private var fetchedImages: [Hit] = []
     private let emptyStateView = EmptyStateView(frame: .zero)
     private let imageService = ImageService()
-    private let EmptyViewEnum = ImageListController.EmptyViewImages.self
-    private var searchTextField = UITextField()
+    private let searchTextField = UITextField()
     private var indicator = UIActivityIndicatorView(style: .medium)
     private var currentPage = 1
     private var isLoading = false
+    private var isLastPage = false
+    private var searchController = UISearchController(searchResultsController: nil)
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("viewDidLoad")
         
         setupTableView()
-        setupSearchBar()
         setupEmptyStateView()
         setupGestureRecognizer()
+        setupSearchController()
+    }
+    //MARK: - setupSearchController
+    private func setupSearchController() {
+        searchController.obscuresBackgroundDuringPresentation = false
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.searchBar.delegate = self
+        searchController.searchBar.returnKeyType = .search
+        searchController.searchBar.searchTextField.delegate = self
     }
     
     //MARK: - Setup Gesture Recognizer
@@ -52,57 +59,59 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
     
     //MARK: - setupTableView
     private func setupTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(with: TableViewCell.self)
-        tableView.register(with: LoadingTableViewCell.self)
+        tableView?.delegate = self
+        tableView?.dataSource = self
+        tableView?.register(with: TableViewCell.self)
+        tableView?.register(with: LoadingTableViewCell.self)
         view.addSubview(emptyStateView)
         createActivityIndicator()
     }
     
-    //MARK: - setupSearchBar
-    private func setupSearchBar() {
-        searchBar.delegate = self
-        searchBar.searchTextField.delegate = self
-        searchBar.showsCancelButton = true
-        searchBar.returnKeyType = .search
-    }
-    
     //MARK: - setupEmptyStateView
     private func setupEmptyStateView() {
+        print("setupEmptyStateView")
         emptyStateView.translatesAutoresizingMaskIntoConstraints = false
-        emptyStateView.set(with: ImageListController.EmptyViewImages.noImagesAtAll)
+        emptyStateView.set(with: EmptyStateType.noImagesAtAll)
         NSLayoutConstraint.activate([
             emptyStateView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             emptyStateView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             emptyStateView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            emptyStateView.topAnchor.constraint(equalTo: searchBar.bottomAnchor)
+            emptyStateView.topAnchor.constraint(equalTo: view.topAnchor)
         ])
     }
     
     //MARK: - createActivityIndicator
     private func createActivityIndicator() {
+        print("createActivityIndicator")
         indicator = UIActivityIndicatorView(frame: CGRect(x: .zero, y: .zero, width: Constants.indicatorSize, height: Constants.indicatorSize))
         indicator.style = UIActivityIndicatorView.Style.medium
-        indicator.center = self.tableView.center
+        indicator.center = self.tableView?.center ?? view.center
         indicator.hidesWhenStopped = true
         view.addSubview(indicator)
     }
     
     //MARK: - Load Images
     private func loadImages(matching searchText: String) {
+        print("loadImages")
+        isLastPage = false
         indicator.startAnimating()
-        imageService.fetchingAPIImages(matching: searchText, perPage: Constants.imagesPerPage, page: currentPage) { [weak self] result,error  in
+        imageService.fetchingAPIImages(matching: searchText, page: currentPage) { [weak self] result,error  in
             guard let self = self else { return }
             self.isLoading = false
             self.fetchedImages = result
+            
+            if result.count < 30 {
+                self.isLastPage = true
+            }
+            
             DispatchQueue.main.async {
                 if self.fetchedImages.isEmpty {
                     self.showEmptyView(with: .notExistingImages)
                 } else {
+                    print("No empty")
                     self.emptyStateView.isHidden = true
-                    self.tableView.isHidden = false
-                    self.tableView.reloadData()
+                    self.tableView?.isHidden = false
+                    self.tableView?.reloadData()
                 }
                 self.indicator.stopAnimating()
             }
@@ -112,49 +121,49 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
     //MARK: - Func loadMoreImages
     func loadMoreImages() {
         isLoading = true
-        tableView.reloadSections(IndexSet(integer: 1), with: .none)
-        imageService.fetchingAPIImages(matching: Constants.text, perPage: Constants.imagesPerPage, page: currentPage) { result,error  in
-            self.fetchedImages.append(contentsOf: result)
+        imageService.fetchingAPIImages(matching: searchController.searchBar.text ?? "", page: currentPage) { result,error  in
             DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(2)) {
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else {
+                        return
+                    }
+                    
+                    if result.count < 30 {
+                        self.isLastPage = true
+                    }
+                    
+                    self.fetchedImages.append(contentsOf: result)
+                    self.tableView?.reloadData()
                     self.isLoading = false
                 }
             }
         }
     }
     
-    //MARK: - Enum EmptyViewImages
-    enum EmptyViewImages  {
-        case notExistingImages
-        case noImagesAtAll
+    //MARK: - Func reloadTableView
+    private func reloadTableView() {
+        fetchedImages = []
+        tableView?.reloadData()
     }
     
     //MARK: - Func showEmptyView
-    private func showEmptyView(with images: ImageListController.EmptyViewImages) {
-        switch images {
-        case .notExistingImages:
-            fetchedImages = []
-            tableView.reloadData()
-            emptyStateView.set(with: images)
-        case .noImagesAtAll:
-            tableView.reloadData()
-            fetchedImages = []
-            emptyStateView.set(with: images)
-        }
+    private func showEmptyView(with images: EmptyStateType) {
+        print("showEmptyView")
+        reloadTableView()
+        emptyStateView.set(with: images)
         emptyStateView.isHidden = false
     }
     
     //MARK: - Func searchBarSearchButtonClicked
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let searchBarText = searchBar.text else { return }
+        print("searchBarSearchButtonClicked")
+        guard let searchBarText = searchController.searchBar.text else { return }
         if searchBarText.isEmpty {
             showEmptyView(with: .noImagesAtAll)
         } else  {
-            self.tableView.isHidden = false
+            self.tableView?.isHidden = false
             self.emptyStateView.isHidden = true
-            currentPage = 0
-            currentPage += 1
+            currentPage = 1
             loadImages(matching: searchBarText)
         }
         searchBar.resignFirstResponder()
@@ -167,64 +176,54 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
     
     //MARK: - Func textFieldShouldClear
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        searchBar.searchTextField.clearButtonMode = .whileEditing
+        searchController.searchBar.searchTextField.clearButtonMode = .whileEditing
         showEmptyView(with: .noImagesAtAll)
-        fetchedImages = []
-        tableView.reloadData()
+        reloadTableView()
         return true
     }
 }
 
 extension ImageListController: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
-    //MARK: - numberOfSections
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
-    
     //MARK: - numberOfRowsInSection
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return fetchedImages.count
-        } else if section == 1 && isLoading {
-            return 1
+        let countOfRows = fetchedImages.count
+        
+        if fetchedImages.isEmpty || isLastPage {
+            return countOfRows
+        } else {
+            return countOfRows + 1
         }
-        return 0
     }
     
     //MARK: - cellForRowAt
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
+        if indexPath.row == fetchedImages.count {
+            let loadingCell = tableView.dequeueReusableCell(withIdentifier: String(describing: LoadingTableViewCell.self), for: indexPath) as! LoadingTableViewCell
+            
+            return loadingCell
+        } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TableViewCell.self), for: indexPath) as! TableViewCell
             let image = fetchedImages
             cell.configureWith(model: image[indexPath.row].webformatURL)
             
             return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: LoadingTableViewCell.self), for: indexPath) as! LoadingTableViewCell
-            cell.loader.startAnimating()
-            
-            return cell
+        }
+    }
+    
+    //MARK: - Func willDisplay
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let _ = cell as? LoadingTableViewCell, !isLoading {
+            currentPage += 1
+            loadMoreImages()
         }
     }
     
     //MARK: - heightForRowAt
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            return UIScreen.main.bounds.width
-        } else {
+        if indexPath.row == fetchedImages.count {
             return Constants.heightCell
-        }
-    }
-    
-    //MARK: - scrollViewDidScroll
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y
-        let contentHeight = scrollView.contentSize.height
-        
-        if offsetY > contentHeight - scrollView.frame.height && !isLoading {
-            currentPage += 1
-            loadMoreImages()
-            
+        } else {
+            return UIScreen.main.bounds.width
         }
     }
 }

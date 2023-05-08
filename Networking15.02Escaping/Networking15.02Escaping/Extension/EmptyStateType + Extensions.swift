@@ -8,7 +8,13 @@
 import Foundation
 import UIKit
 
-extension ImageListController.EmptyViewImages: EmptyViewProtocol {
+//MARK: - Enum EmptyViewImages
+enum EmptyStateType {
+    case notExistingImages
+    case noImagesAtAll
+}
+
+extension EmptyStateType: EmptyViewProtocol {
     
     var image: UIImage {
         switch self {

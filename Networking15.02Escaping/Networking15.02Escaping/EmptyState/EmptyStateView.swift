@@ -10,7 +10,7 @@ import UIKit
 
 class EmptyStateView: UIView {
     
-    private var message = UILabel()
+    private let message = UILabel()
     private var imageView = UIImageView()
     
     override init(frame: CGRect) {

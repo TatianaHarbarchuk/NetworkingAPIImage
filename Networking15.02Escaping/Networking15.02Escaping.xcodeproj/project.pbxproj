@@ -21,7 +21,8 @@
 		394FAC9C29EEC07D004BA7F7 /* LoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 394FAC9A29EEC07D004BA7F7 /* LoadingTableViewCell.xib */; };
 		3967A87129D6189700FD7252 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3967A87029D6189700FD7252 /* UITableView+Extensions.swift */; };
 		3967A87329DC474600FD7252 /* EmptyViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3967A87229DC474600FD7252 /* EmptyViewProtocol.swift */; };
-		3967A87529DC478300FD7252 /* ImageListController.EmptyViewImages + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3967A87429DC478300FD7252 /* ImageListController.EmptyViewImages + Extensions.swift */; };
+		3967A87529DC478300FD7252 /* EmptyStateType + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3967A87429DC478300FD7252 /* EmptyStateType + Extensions.swift */; };
+		3967A9B32A0689AA00BA4529 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3967A9B22A0689A900BA4529 /* ImageViewController.swift */; };
 		399DB87B29A7756A005777D6 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399DB87A29A7756A005777D6 /* UIImageView+Extensions.swift */; };
 		39AC36A129C4B538008BD436 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AC36A029C4B538008BD436 /* EmptyStateView.swift */; };
 /* End PBXBuildFile section */
@@ -43,7 +44,8 @@
 		394FAC9A29EEC07D004BA7F7 /* LoadingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingTableViewCell.xib; sourceTree = "<group>"; };
 		3967A87029D6189700FD7252 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		3967A87229DC474600FD7252 /* EmptyViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewProtocol.swift; sourceTree = "<group>"; };
-		3967A87429DC478300FD7252 /* ImageListController.EmptyViewImages + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageListController.EmptyViewImages + Extensions.swift"; sourceTree = "<group>"; };
+		3967A87429DC478300FD7252 /* EmptyStateType + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmptyStateType + Extensions.swift"; sourceTree = "<group>"; };
+		3967A9B22A0689A900BA4529 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		399DB87A29A7756A005777D6 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		39AC36A029C4B538008BD436 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,6 +85,7 @@
 				390FD80C299D36BE0035374F /* AppDelegate.swift */,
 				390FD80E299D36BE0035374F /* SceneDelegate.swift */,
 				390FD810299D36BE0035374F /* ImageListController.swift */,
+				3967A9B22A0689A900BA4529 /* ImageViewController.swift */,
 				390FD812299D36BE0035374F /* Main.storyboard */,
 				390FD815299D36C00035374F /* Assets.xcassets */,
 				390FD817299D36C00035374F /* LaunchScreen.storyboard */,
@@ -116,7 +119,7 @@
 			children = (
 				399DB87A29A7756A005777D6 /* UIImageView+Extensions.swift */,
 				3967A87029D6189700FD7252 /* UITableView+Extensions.swift */,
-				3967A87429DC478300FD7252 /* ImageListController.EmptyViewImages + Extensions.swift */,
+				3967A87429DC478300FD7252 /* EmptyStateType + Extensions.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -219,12 +222,13 @@
 				390FD80D299D36BE0035374F /* AppDelegate.swift in Sources */,
 				39AC36A129C4B538008BD436 /* EmptyStateView.swift in Sources */,
 				390FD80F299D36BE0035374F /* SceneDelegate.swift in Sources */,
+				3967A9B32A0689AA00BA4529 /* ImageViewController.swift in Sources */,
 				390FD821299D373C0035374F /* Model.swift in Sources */,
 				399DB87B29A7756A005777D6 /* UIImageView+Extensions.swift in Sources */,
 				390FD82A299FBBA30035374F /* TableViewCell.swift in Sources */,
 				3967A87329DC474600FD7252 /* EmptyViewProtocol.swift in Sources */,
 				390FD827299EB1D90035374F /* ImageService.swift in Sources */,
-				3967A87529DC478300FD7252 /* ImageListController.EmptyViewImages + Extensions.swift in Sources */,
+				3967A87529DC478300FD7252 /* EmptyStateType + Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
