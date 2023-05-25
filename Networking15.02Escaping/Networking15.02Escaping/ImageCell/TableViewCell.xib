@@ -28,8 +28,8 @@
                         <constraints>
                             <constraint firstItem="25C-LC-f1D" firstAttribute="top" secondItem="MJm-aK-wl7" secondAttribute="top" id="8rB-m5-Ryx"/>
                             <constraint firstAttribute="bottom" secondItem="25C-LC-f1D" secondAttribute="bottom" id="Hqc-nh-k0f"/>
-                            <constraint firstAttribute="trailing" secondItem="25C-LC-f1D" secondAttribute="trailing" id="qp1-Gn-UeP"/>
                             <constraint firstItem="25C-LC-f1D" firstAttribute="leading" secondItem="MJm-aK-wl7" secondAttribute="leading" id="rNp-5N-UVP"/>
+                            <constraint firstAttribute="trailing" secondItem="25C-LC-f1D" secondAttribute="trailing" id="tcD-dv-Ae9"/>
                         </constraints>
                     </view>
                 </subviews>

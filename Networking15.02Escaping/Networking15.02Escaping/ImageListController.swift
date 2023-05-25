@@ -7,7 +7,9 @@
 
 import UIKit
 
+
 class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDelegate {
+    
     //MARK: - Constants
     private struct Constants {
         static let indicatorSize: CGFloat = 40
@@ -27,34 +29,25 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
     private var isLoading = false
     private var isLastPage = false
     private var searchController = UISearchController(searchResultsController: nil)
+
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewDidLoad")
         
         setupTableView()
         setupEmptyStateView()
-        setupGestureRecognizer()
         setupSearchController()
     }
+    
     //MARK: - setupSearchController
     private func setupSearchController() {
-        searchController.obscuresBackgroundDuringPresentation = false
-        navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = false
         searchController.searchBar.delegate = self
         searchController.searchBar.returnKeyType = .search
         searchController.searchBar.searchTextField.delegate = self
-    }
-    
-    //MARK: - Setup Gesture Recognizer
-    private func setupGestureRecognizer() {
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
-    }
-    
-    @objc private func hideKeyboard() {
-        view.endEditing(true)
+        searchController.obscuresBackgroundDuringPresentation = false
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
     
     //MARK: - setupTableView
@@ -69,7 +62,6 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
     
     //MARK: - setupEmptyStateView
     private func setupEmptyStateView() {
-        print("setupEmptyStateView")
         emptyStateView.translatesAutoresizingMaskIntoConstraints = false
         emptyStateView.set(with: EmptyStateType.noImagesAtAll)
         NSLayoutConstraint.activate([
@@ -82,7 +74,6 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
     
     //MARK: - createActivityIndicator
     private func createActivityIndicator() {
-        print("createActivityIndicator")
         indicator = UIActivityIndicatorView(frame: CGRect(x: .zero, y: .zero, width: Constants.indicatorSize, height: Constants.indicatorSize))
         indicator.style = UIActivityIndicatorView.Style.medium
         indicator.center = self.tableView?.center ?? view.center
@@ -92,14 +83,12 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
     
     //MARK: - Load Images
     private func loadImages(matching searchText: String) {
-        print("loadImages")
         isLastPage = false
         indicator.startAnimating()
         imageService.fetchingAPIImages(matching: searchText, page: currentPage) { [weak self] result,error  in
             guard let self = self else { return }
             self.isLoading = false
             self.fetchedImages = result
-            
             if result.count < 30 {
                 self.isLastPage = true
             }
@@ -108,7 +97,6 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
                 if self.fetchedImages.isEmpty {
                     self.showEmptyView(with: .notExistingImages)
                 } else {
-                    print("No empty")
                     self.emptyStateView.isHidden = true
                     self.tableView?.isHidden = false
                     self.tableView?.reloadData()
@@ -119,7 +107,7 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
     }
     
     //MARK: - Func loadMoreImages
-    func loadMoreImages() {
+    private func loadMoreImages() {
         isLoading = true
         imageService.fetchingAPIImages(matching: searchController.searchBar.text ?? "", page: currentPage) { result,error  in
             DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(2)) {
@@ -148,7 +136,6 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
     
     //MARK: - Func showEmptyView
     private func showEmptyView(with images: EmptyStateType) {
-        print("showEmptyView")
         reloadTableView()
         emptyStateView.set(with: images)
         emptyStateView.isHidden = false
@@ -156,12 +143,10 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
     
     //MARK: - Func searchBarSearchButtonClicked
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print("searchBarSearchButtonClicked")
         guard let searchBarText = searchController.searchBar.text else { return }
         if searchBarText.isEmpty {
             showEmptyView(with: .noImagesAtAll)
         } else  {
-            self.tableView?.isHidden = false
             self.emptyStateView.isHidden = true
             currentPage = 1
             loadImages(matching: searchBarText)
@@ -184,6 +169,7 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
 }
 
 extension ImageListController: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
+    
     //MARK: - numberOfRowsInSection
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let countOfRows = fetchedImages.count
@@ -203,9 +189,10 @@ extension ImageListController: UITableViewDelegate, UITableViewDataSource, UIScr
             return loadingCell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TableViewCell.self), for: indexPath) as! TableViewCell
-            let image = fetchedImages
-            cell.configureWith(model: image[indexPath.row].webformatURL)
-            
+            cell.delegate = self
+            let image = fetchedImages[indexPath.row]
+            cell.configureWith(model: image)
+
             return cell
         }
     }
@@ -226,4 +213,44 @@ extension ImageListController: UITableViewDelegate, UITableViewDataSource, UIScr
             return UIScreen.main.bounds.width
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row != fetchedImages.count {
+            tableView.deselectRow(at: indexPath, animated: true)
+            performSegue(withIdentifier: "showImageVC", sender: indexPath)
+        }
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showImageVC" {
+            let destinationVC = segue.destination as! ImageViewController
+            if let indexPath = sender as? IndexPath {
+                let selectedRow = indexPath.row
+                let model = fetchedImages[selectedRow]
+                destinationVC.fetchedImages = model
+                destinationVC.delegate = self
+            }
+        }
+    }
 }
+
+extension ImageListController: TableViewCellDelegate, ImageViewControllerDelegate {
+    func updateImage(imageURL: String, _ isFavourite: Bool) {
+        var model = fetchedImages.first(where: { $0.webformatURL == imageURL })
+        model?.isFavourite = isFavourite
+        guard
+            let index = fetchedImages.firstIndex(where: { $0.webformatURL == imageURL } ),
+            let model = model
+        else { return }
+        fetchedImages[index] = model
+        let indexPath = IndexPath(row: index, section: 0)
+        tableView?.reloadRows(at: [indexPath], with: .automatic)
+    }
+    
+    func didTapLikeButton(url: String, isFavourite: Bool) {
+        updateImage(imageURL: url, isFavourite)
+    }
+    func isFavouriteDidChange(for imageURL: String, _ isFavourite: Bool) {
+        updateImage(imageURL: imageURL, isFavourite)
+    }
+}
+

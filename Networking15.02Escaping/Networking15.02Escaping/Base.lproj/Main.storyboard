@@ -33,6 +33,7 @@
                     <navigationItem key="navigationItem" id="MXO-C6-CTX"/>
                     <connections>
                         <outlet property="tableView" destination="UHw-21-6or" id="T5l-cj-LFT"/>
+                        <segue destination="gxa-cU-wex" kind="show" identifier="showImageVC" id="VJl-9c-IRH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -47,17 +48,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VhY-CK-hQj">
-                                <rect key="frame" x="20" y="113" width="374" height="680"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VhY-CK-hQj">
+                                <rect key="frame" x="20" y="319" width="374" height="270"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EAU-SY-i4X"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="VhY-CK-hQj" firstAttribute="top" secondItem="EAU-SY-i4X" secondAttribute="top" constant="69" id="4Tg-pP-8Ic"/>
-                            <constraint firstItem="EAU-SY-i4X" firstAttribute="bottom" secondItem="VhY-CK-hQj" secondAttribute="bottom" constant="69" id="FQh-yC-uoU"/>
-                            <constraint firstItem="VhY-CK-hQj" firstAttribute="leading" secondItem="EAU-SY-i4X" secondAttribute="leading" constant="20" id="nnh-7a-pc7"/>
-                            <constraint firstItem="EAU-SY-i4X" firstAttribute="trailing" secondItem="VhY-CK-hQj" secondAttribute="trailing" constant="20" id="sIJ-pO-lSE"/>
+                            <constraint firstItem="EAU-SY-i4X" firstAttribute="bottom" secondItem="VhY-CK-hQj" secondAttribute="bottom" constant="273" id="Wt0-nX-NQj"/>
+                            <constraint firstItem="EAU-SY-i4X" firstAttribute="trailing" secondItem="VhY-CK-hQj" secondAttribute="trailing" constant="20" id="dEJ-JW-ybY"/>
+                            <constraint firstItem="VhY-CK-hQj" firstAttribute="leading" secondItem="EAU-SY-i4X" secondAttribute="leading" constant="20" id="l8z-bB-KI2"/>
+                            <constraint firstItem="VhY-CK-hQj" firstAttribute="top" secondItem="EAU-SY-i4X" secondAttribute="top" constant="231" id="tlX-Hf-qjb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tcx-I6-uc3"/>
