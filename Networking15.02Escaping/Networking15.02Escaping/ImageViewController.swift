@@ -11,11 +11,12 @@ protocol ImageViewControllerDelegate: AnyObject {
     func didTapLikeButton(url: String, isFavourite: Bool)
 }
 
-class ImageViewController: UIViewController {
+final class ImageViewController: UIViewController {
     
     private struct Constants {
         static let indicatorSize: CGFloat = 40
         static let cornerRadius: CGFloat = 30
+        static let buttonSize: CGFloat = 36
     }
     
     //MARK: - IBOutlets
@@ -24,10 +25,10 @@ class ImageViewController: UIViewController {
     //MARK: - Properties
     private var imageURL: String?
     private var likeButton = UIButton(type: .custom)
-    var fetchedImages: Hit? {
+    var fetchedImage: Hit? {
         didSet {
-            likeButton.tintColor = fetchedImages?.isFavourite ?? false ? .systemRed : .lightGray
-            delegate?.didTapLikeButton(url: fetchedImages?.webformatURL ?? "", isFavourite: fetchedImages?.isFavourite ?? false)
+            likeButton.tintColor = fetchedImage?.isFavourite ?? false ? .systemRed : .lightGray
+            delegate?.didTapLikeButton(url: fetchedImage?.webformatURL ?? "", isFavourite: fetchedImage?.isFavourite ?? false)
         }
     }
     weak var delegate: ImageViewControllerDelegate?
@@ -45,7 +46,7 @@ class ImageViewController: UIViewController {
     //MARK: - Func loadImage
     private func loadImage() {
         activityIndicator.startAnimating()
-        if let imageURL = fetchedImages?.webformatURL {
+        if let imageURL = fetchedImage?.webformatURL {
             imageView?.imageFromURL(imageURL)
         }
         activityIndicator.stopAnimating()
@@ -56,28 +57,34 @@ class ImageViewController: UIViewController {
         imageView?.translatesAutoresizingMaskIntoConstraints = false
         imageView?.layer.cornerRadius = Constants.cornerRadius
         imageView?.contentMode = .scaleAspectFill
-        likeButton.frame = CGRect(x: 300, y: 490, width: 120, height: 120)
+        likeButton.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator = UIActivityIndicatorView(frame: CGRect(x: view.center.x, y: view.center.y, width: Constants.indicatorSize, height: Constants.indicatorSize))
         activityIndicator.style = .medium
         activityIndicator.hidesWhenStopped = true
         view.addSubview(activityIndicator)
         view.addSubview(likeButton)
+        NSLayoutConstraint.activate([
+            likeButton.bottomAnchor.constraint(equalTo: imageView?.bottomAnchor ?? view.bottomAnchor),
+            likeButton.trailingAnchor.constraint(equalTo: imageView?.trailingAnchor ?? view.trailingAnchor),
+            likeButton.widthAnchor.constraint(equalToConstant: Constants.buttonSize),
+            likeButton.heightAnchor.constraint(equalToConstant: Constants.buttonSize)
+        ])
     }
     
     //MARK: - Func configureButton
     private func configureButton() {
         likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-        likeButton.tintColor = fetchedImages?.isFavourite ?? false ? .systemRed : .lightGray
+        likeButton.tintColor = fetchedImage?.isFavourite ?? false ? .systemRed : .lightGray
         likeButton.addTarget(self, action: #selector(favouriteButtonPressed), for: .touchUpInside)
     }
     
     @objc private func favouriteButtonPressed(_ sender: UIButton) {
-        guard fetchedImages?.isFavourite != nil else {
-            fetchedImages?.isFavourite = true
+        guard fetchedImage?.isFavourite != nil else {
+            fetchedImage?.isFavourite = true
             return
         }
-        fetchedImages?.isFavourite.toggle()
+        fetchedImage?.isFavourite.toggle()
     }
 }
 

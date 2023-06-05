@@ -8,7 +8,7 @@
 import UIKit
 
 
-class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDelegate {
+final class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDelegate {
     
     //MARK: - Constants
     private struct Constants {
@@ -29,7 +29,7 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
     private var isLoading = false
     private var isLastPage = false
     private var searchController = UISearchController(searchResultsController: nil)
-
+    
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -54,7 +54,7 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
     private func setupTableView() {
         tableView?.delegate = self
         tableView?.dataSource = self
-        tableView?.register(with: TableViewCell.self)
+        tableView?.register(with: MainImageCell.self)
         tableView?.register(with: LoadingTableViewCell.self)
         view.addSubview(emptyStateView)
         createActivityIndicator()
@@ -110,20 +110,18 @@ class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDel
     private func loadMoreImages() {
         isLoading = true
         imageService.fetchingAPIImages(matching: searchController.searchBar.text ?? "", page: currentPage) { result,error  in
-            DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(2)) {
-                DispatchQueue.main.async { [weak self] in
-                    guard let self = self else {
-                        return
-                    }
-                    
-                    if result.count < 30 {
-                        self.isLastPage = true
-                    }
-                    
-                    self.fetchedImages.append(contentsOf: result)
-                    self.tableView?.reloadData()
-                    self.isLoading = false
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else {
+                    return
                 }
+                
+                if result.count < 30 {
+                    self.isLastPage = true
+                }
+                
+                self.fetchedImages.append(contentsOf: result)
+                self.tableView?.reloadData()
+                self.isLoading = false
             }
         }
     }
@@ -184,17 +182,20 @@ extension ImageListController: UITableViewDelegate, UITableViewDataSource, UIScr
     //MARK: - cellForRowAt
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == fetchedImages.count {
-            let loadingCell = tableView.dequeueReusableCell(withIdentifier: String(describing: LoadingTableViewCell.self), for: indexPath) as! LoadingTableViewCell
-            
-            return loadingCell
+            if let loadingCell = tableView.dequeueReusableCell(withIdentifier: String(describing: LoadingTableViewCell.self), for: indexPath) as? LoadingTableViewCell {
+                
+                return loadingCell
+            }
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TableViewCell.self), for: indexPath) as! TableViewCell
-            cell.delegate = self
-            let image = fetchedImages[indexPath.row]
-            cell.configureWith(model: image)
-
-            return cell
+            if let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: MainImageCell.self), for: indexPath) as? MainImageCell {
+                cell.delegate = self
+                let image = fetchedImages[indexPath.row]
+                cell.configureWith(model: image)
+                
+                return cell
+            }
         }
+        return UITableViewCell()
     }
     
     //MARK: - Func willDisplay
@@ -222,18 +223,17 @@ extension ImageListController: UITableViewDelegate, UITableViewDataSource, UIScr
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showImageVC" {
-            let destinationVC = segue.destination as! ImageViewController
-            if let indexPath = sender as? IndexPath {
+            if let destinationVC = segue.destination as? ImageViewController, let indexPath = sender as? IndexPath {
                 let selectedRow = indexPath.row
                 let model = fetchedImages[selectedRow]
-                destinationVC.fetchedImages = model
+                destinationVC.fetchedImage = model
                 destinationVC.delegate = self
             }
         }
     }
 }
 
-extension ImageListController: TableViewCellDelegate, ImageViewControllerDelegate {
+extension ImageListController: MainImageCellDelegate, ImageViewControllerDelegate {
     func updateImage(imageURL: String, _ isFavourite: Bool) {
         var model = fetchedImages.first(where: { $0.webformatURL == imageURL })
         model?.isFavourite = isFavourite

@@ -8,7 +8,12 @@
 import Foundation
 import UIKit
 
-class EmptyStateView: UIView {
+final class EmptyStateView: UIView {
+    
+    private struct Constants {
+        static let centerYAnchor: CGFloat = -100
+        static let constraint: CGFloat = 100
+    }
     
     private let message = UILabel()
     private var imageView = UIImageView()
@@ -39,9 +44,9 @@ class EmptyStateView: UIView {
             message.leadingAnchor.constraint(equalTo: leadingAnchor),
             message.topAnchor.constraint(equalTo: topAnchor),
             imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            imageView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -100),
-            imageView.widthAnchor.constraint(equalToConstant: 100),
-            imageView.heightAnchor.constraint(equalToConstant: 100)
+            imageView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: Constants.centerYAnchor),
+            imageView.widthAnchor.constraint(equalToConstant: Constants.constraint),
+            imageView.heightAnchor.constraint(equalToConstant: Constants.constraint)
         ])
     }
     

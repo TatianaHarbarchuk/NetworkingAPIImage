@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoadingTableViewCell: UITableViewCell {
+final class LoadingTableViewCell: UITableViewCell {
 
     @IBOutlet private var loader: UIActivityIndicatorView?
     

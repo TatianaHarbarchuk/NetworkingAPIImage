@@ -2307,84 +2307,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B3DA5886-8951-48B1-9037-008C8B6CB49F"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Networking15.02Escaping/ImageListController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "loadMoreImages()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "B3DA5886-8951-48B1-9037-008C8B6CB49F - 2bc719b9b3965f0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Array&lt;Networking15_02Escaping.Hit&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Networking15_02Escaping.ImageListController.loadMoreImages() -&gt; ()"
-                  moduleName = "Networking15.02Escaping"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/taniagarbarchuk/Dekstop/test3/Networking15.02Escaping/Networking15.02Escaping/ImageListController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "130"
-                  endingLineNumber = "130"
-                  offsetFromSymbolStart = "412">
-               </Location>
-               <Location
-                  uuid = "B3DA5886-8951-48B1-9037-008C8B6CB49F - df8c25f536bce10b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Array&lt;Networking15_02Escaping.Hit&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Networking15_02Escaping.ImageListController.loadMoreImages() -&gt; ()"
-                  moduleName = "Networking15.02Escaping"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/taniagarbarchuk/Dekstop/test3/Networking15.02Escaping/Networking15.02Escaping/ImageListController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "131"
-                  endingLineNumber = "131"
-                  offsetFromSymbolStart = "168">
-               </Location>
-               <Location
-                  uuid = "B3DA5886-8951-48B1-9037-008C8B6CB49F - 2bc719b9b396511"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Array&lt;Networking15_02Escaping.Hit&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Networking15_02Escaping.ImageListController.loadMoreImages() -&gt; ()"
-                  moduleName = "Networking15.02Escaping"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/taniagarbarchuk/Dekstop/test3/Networking15.02Escaping/Networking15.02Escaping/ImageListController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "129"
-                  endingLineNumber = "129"
-                  offsetFromSymbolStart = "412">
-               </Location>
-               <Location
-                  uuid = "B3DA5886-8951-48B1-9037-008C8B6CB49F - df8c25f536bce128"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Array&lt;Networking15_02Escaping.Hit&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Networking15_02Escaping.ImageListController.loadMoreImages() -&gt; ()"
-                  moduleName = "Networking15.02Escaping"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/taniagarbarchuk/Dekstop/test3/Networking15.02Escaping/Networking15.02Escaping/ImageListController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "130"
-                  endingLineNumber = "130"
-                  offsetFromSymbolStart = "168">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "661D0F67-DCD8-4835-AA3B-77FBD1C983B9"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -2392,8 +2314,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
             landmarkName = "loadMoreImages()"
             landmarkType = "7">
             <Locations>
@@ -2440,8 +2362,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
             landmarkName = "loadMoreImages()"
             landmarkType = "7">
             <Locations>
@@ -2518,8 +2440,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "loadMoreImages()"
             landmarkType = "7">
             <Locations>
@@ -2566,8 +2488,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "loadMoreImages()"
             landmarkType = "7">
             <Locations>
@@ -2614,8 +2536,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "loadMoreImages()"
             landmarkType = "7">
             <Locations>
@@ -2662,8 +2584,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "loadMoreImages()"
             landmarkType = "7">
             <Locations>
@@ -2710,8 +2632,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "loadMoreImages()"
             landmarkType = "7">
             <Locations>
@@ -2758,8 +2680,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "loadMoreImages()"
             landmarkType = "7">
             <Locations>
@@ -2806,8 +2728,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "loadMoreImages()"
             landmarkType = "7">
             <Locations>
@@ -2854,8 +2776,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "loadMoreImages()"
             landmarkType = "7">
             <Locations>
@@ -2895,54 +2817,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AEB627ED-D9FB-46FF-B97F-EB4585D21B34"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Networking15.02Escaping/ImageListController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "loadMoreImages()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "AEB627ED-D9FB-46FF-B97F-EB4585D21B34 - 5b5eafce42e4b7bb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 () -&gt; () in closure #1 (Swift.Array&lt;Networking15_02Escaping.Hit&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Networking15_02Escaping.ImageListController.loadMoreImages() -&gt; ()"
-                  moduleName = "Networking15.02Escaping"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/taniagarbarchuk/Dekstop/test3/Networking15.02Escaping/Networking15.02Escaping/ImageListController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "141"
-                  endingLineNumber = "141"
-                  offsetFromSymbolStart = "316">
-               </Location>
-               <Location
-                  uuid = "AEB627ED-D9FB-46FF-B97F-EB4585D21B34 - 5b5eafce42e4b664"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 () -&gt; () in closure #1 (Swift.Array&lt;Networking15_02Escaping.Hit&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Networking15_02Escaping.ImageListController.loadMoreImages() -&gt; ()"
-                  moduleName = "Networking15.02Escaping"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/taniagarbarchuk/Dekstop/test3/Networking15.02Escaping/Networking15.02Escaping/ImageListController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "140"
-                  endingLineNumber = "140"
-                  offsetFromSymbolStart = "316">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "2FD57139-0C98-4DE6-B4E4-B3393CFDF48D"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -2950,8 +2824,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
             landmarkName = "reloadTableView()"
             landmarkType = "7">
             <Locations>
@@ -2998,8 +2872,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "reloadTableView()"
             landmarkType = "7">
             <Locations>
@@ -3046,8 +2920,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
             landmarkName = "showEmptyView(with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3062,8 +2936,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
             landmarkName = "showEmptyView(with:)"
             landmarkType = "7">
             <Locations>
@@ -3110,8 +2984,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
             landmarkName = "showEmptyView(with:)"
             landmarkType = "7">
             <Locations>
@@ -3158,8 +3032,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
             landmarkName = "showEmptyView(with:)"
             landmarkType = "7">
             <Locations>
@@ -3206,8 +3080,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
             landmarkName = "searchBarSearchButtonClicked(_:)"
             landmarkType = "7">
             <Locations>
@@ -3284,8 +3158,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "searchBarSearchButtonClicked(_:)"
             landmarkType = "7">
             <Locations>
@@ -3332,8 +3206,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "searchBarSearchButtonClicked(_:)"
             landmarkType = "7">
             <Locations>
@@ -3380,8 +3254,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
             landmarkName = "searchBarSearchButtonClicked(_:)"
             landmarkType = "7">
             <Locations>
@@ -3428,8 +3302,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
             landmarkName = "searchBarSearchButtonClicked(_:)"
             landmarkType = "7">
             <Locations>
@@ -3476,8 +3350,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
             landmarkName = "searchBarSearchButtonClicked(_:)"
             landmarkType = "7">
             <Locations>
@@ -3524,8 +3398,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
             landmarkName = "searchBarSearchButtonClicked(_:)"
             landmarkType = "7">
             <Locations>
@@ -3572,8 +3446,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
             landmarkName = "searchBarSearchButtonClicked(_:)"
             landmarkType = "7">
             <Locations>
@@ -3620,8 +3494,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
             landmarkName = "searchBarSearchButtonClicked(_:)"
             landmarkType = "7">
             <Locations>
@@ -3668,8 +3542,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
             landmarkName = "searchBarCancelButtonClicked(_:)"
             landmarkType = "7">
             <Locations>
@@ -3716,8 +3590,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
             landmarkName = "textFieldShouldClear(_:)"
             landmarkType = "7">
             <Locations>
@@ -3764,8 +3638,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
             landmarkName = "textFieldShouldClear(_:)"
             landmarkType = "7">
             <Locations>
@@ -3812,8 +3686,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
             landmarkName = "textFieldShouldClear(_:)"
             landmarkType = "7">
             <Locations>
@@ -3860,8 +3734,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
             landmarkName = "textFieldShouldClear(_:)"
             landmarkType = "7">
             <Locations>
@@ -3908,8 +3782,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
             landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "7">
             <Locations>
@@ -3956,8 +3830,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
             landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "7">
             <Locations>
@@ -4004,8 +3878,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
             landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "7">
             <Locations>
@@ -4052,8 +3926,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "178"
-            endingLineNumber = "178"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
             landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "7">
             <Locations>
@@ -4100,8 +3974,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "179"
-            endingLineNumber = "179"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
             landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "7">
             <Locations>
@@ -4148,8 +4022,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
             landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "7">
             <Locations>
@@ -4196,8 +4070,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "186"
-            endingLineNumber = "186"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
             <Locations>
@@ -4244,8 +4118,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "187"
-            endingLineNumber = "187"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
             <Locations>
@@ -4292,8 +4166,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "188"
-            endingLineNumber = "188"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
             <Locations>
@@ -4340,8 +4214,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "189"
-            endingLineNumber = "189"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
             <Locations>
@@ -4388,8 +4262,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "190"
-            endingLineNumber = "190"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
             <Locations>
@@ -4436,8 +4310,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
             <Locations>
@@ -4484,8 +4358,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
             <Locations>
@@ -4532,8 +4406,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "194"
-            endingLineNumber = "194"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
             <Locations>
@@ -4580,8 +4454,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "195"
-            endingLineNumber = "195"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
             <Locations>
@@ -4628,8 +4502,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
+            startingLineNumber = "195"
+            endingLineNumber = "195"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
             <Locations>
@@ -4676,8 +4550,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "202"
-            endingLineNumber = "202"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
             landmarkName = "tableView(_:willDisplay:forRowAt:)"
             landmarkType = "7">
             <Locations>
@@ -4724,8 +4598,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
             landmarkName = "tableView(_:willDisplay:forRowAt:)"
             landmarkType = "7">
             <Locations>
@@ -4772,8 +4646,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "204"
-            endingLineNumber = "204"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
             landmarkName = "tableView(_:willDisplay:forRowAt:)"
             landmarkType = "7">
             <Locations>
@@ -4820,8 +4694,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "210"
-            endingLineNumber = "210"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
             landmarkName = "tableView(_:heightForRowAt:)"
             landmarkType = "7">
             <Locations>
@@ -4868,8 +4742,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
             landmarkName = "tableView(_:heightForRowAt:)"
             landmarkType = "7">
             <Locations>
@@ -4916,8 +4790,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "212"
-            endingLineNumber = "212"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
             landmarkName = "tableView(_:heightForRowAt:)"
             landmarkType = "7">
             <Locations>
@@ -4964,8 +4838,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
+            startingLineNumber = "214"
+            endingLineNumber = "214"
             landmarkName = "tableView(_:heightForRowAt:)"
             landmarkType = "7">
             <Locations>
@@ -5012,8 +4886,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "218"
-            endingLineNumber = "218"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
             <Locations>
@@ -5060,8 +4934,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "219"
-            endingLineNumber = "219"
+            startingLineNumber = "220"
+            endingLineNumber = "220"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
             <Locations>
@@ -5108,8 +4982,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
             <Locations>
@@ -5156,8 +5030,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "221"
-            endingLineNumber = "221"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
             <Locations>
@@ -5204,8 +5078,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "222"
-            endingLineNumber = "222"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
             <Locations>
@@ -5252,8 +5126,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5268,8 +5142,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
             <Locations>
@@ -5316,8 +5190,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "225"
-            endingLineNumber = "225"
+            startingLineNumber = "226"
+            endingLineNumber = "226"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
             <Locations>
@@ -5350,54 +5224,6 @@
                   startingLineNumber = "245"
                   endingLineNumber = "245"
                   offsetFromSymbolStart = "784">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CE37F95C-383C-4EBC-B6DF-B2C63A2BD79A"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Networking15.02Escaping/ImageListController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
-            landmarkName = "prepare(for:sender:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "CE37F95C-383C-4EBC-B6DF-B2C63A2BD79A - 52a3a1adff46e1d7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Networking15_02Escaping.ImageListController.prepare(for: __C.UIStoryboardSegue, sender: Swift.Optional&lt;Any&gt;) -&gt; ()"
-                  moduleName = "Networking15.02Escaping"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/taniagarbarchuk/Dekstop/test3/Networking15.02Escaping/Networking15.02Escaping/ImageListController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "247"
-                  endingLineNumber = "247"
-                  offsetFromSymbolStart = "856">
-               </Location>
-               <Location
-                  uuid = "CE37F95C-383C-4EBC-B6DF-B2C63A2BD79A - 52a3a1adff46e1f4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Networking15_02Escaping.ImageListController.prepare(for: __C.UIStoryboardSegue, sender: Swift.Optional&lt;Any&gt;) -&gt; ()"
-                  moduleName = "Networking15.02Escaping"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/taniagarbarchuk/Dekstop/test3/Networking15.02Escaping/Networking15.02Escaping/ImageListController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "246"
-                  endingLineNumber = "246"
-                  offsetFromSymbolStart = "856">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -5654,7 +5480,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "24"
             endingLineNumber = "24"
-            landmarkName = "TableViewCell"
+            landmarkName = "MainImageCell"
             landmarkType = "3">
             <Locations>
                <Location
@@ -5792,7 +5618,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
             endingLineNumber = "25"
-            landmarkName = "TableViewCell"
+            landmarkName = "MainImageCell"
             landmarkType = "3">
             <Locations>
                <Location
@@ -6110,7 +5936,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "21"
             endingLineNumber = "21"
-            landmarkName = "TableViewCell"
+            landmarkName = "MainImageCell"
             landmarkType = "3">
             <Locations>
                <Location
@@ -7500,8 +7326,8 @@
             filePath = "Networking15.02Escaping/ImageListController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
             landmarkName = "searchBarCancelButtonClicked(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -7580,8 +7406,8 @@
             filePath = "Networking15.02Escaping/ImageViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "ImageViewController"
             landmarkType = "3">
             <Locations>
@@ -7675,6 +7501,96 @@
                   endingLineNumber = "33"
                   offsetFromSymbolStart = "400">
                </Location>
+               <Location
+                  uuid = "B29126D4-261C-4B0E-9EA3-7307A6912C1D - 9d2bad16a27b73da"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Networking15_02Escaping.ImageViewController.activityIndicator.getter : __C.UIActivityIndicatorView"
+                  moduleName = "Networking15.02Escaping"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taniagarbarchuk/Dekstop/test3/Networking15.02Escaping/Networking15.02Escaping/ImageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "B29126D4-261C-4B0E-9EA3-7307A6912C1D - b2d92413a7ff7b06"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Networking15_02Escaping.ImageViewController.activityIndicator.setter : __C.UIActivityIndicatorView"
+                  moduleName = "Networking15.02Escaping"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taniagarbarchuk/Dekstop/test3/Networking15.02Escaping/Networking15.02Escaping/ImageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "112">
+               </Location>
+               <Location
+                  uuid = "B29126D4-261C-4B0E-9EA3-7307A6912C1D - c2db661eb58cae32"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Networking15_02Escaping.ImageViewController.activityIndicator.modify : __C.UIActivityIndicatorView"
+                  moduleName = "Networking15.02Escaping"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taniagarbarchuk/Dekstop/test3/Networking15.02Escaping/Networking15.02Escaping/ImageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "B29126D4-261C-4B0E-9EA3-7307A6912C1D - 6578c9a29bcb4acd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Networking15_02Escaping.ImageViewController.activityIndicator.modify : __C.UIActivityIndicatorView with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Networking15.02Escaping"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taniagarbarchuk/Dekstop/test3/Networking15.02Escaping/Networking15.02Escaping/ImageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "B29126D4-261C-4B0E-9EA3-7307A6912C1D - 714b59f7f5e5fb35"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Networking15_02Escaping.ImageViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Networking15_02Escaping.ImageViewController"
+                  moduleName = "Networking15.02Escaping"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taniagarbarchuk/Dekstop/test3/Networking15.02Escaping/Networking15.02Escaping/ImageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "424">
+               </Location>
+               <Location
+                  uuid = "B29126D4-261C-4B0E-9EA3-7307A6912C1D - 51633da0b7d301bb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Networking15_02Escaping.ImageViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Networking15_02Escaping.ImageViewController&gt;"
+                  moduleName = "Networking15.02Escaping"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taniagarbarchuk/Dekstop/test3/Networking15.02Escaping/Networking15.02Escaping/ImageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "400">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -7688,10 +7604,42 @@
             filePath = "Networking15.02Escaping/ImageViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "setup()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7C2DC346-0268-46BF-AF58-9E860BCDC48B - b570d29bab4d1f7d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Networking15_02Escaping.ImageViewController.setup() -&gt; ()"
+                  moduleName = "Networking15.02Escaping"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taniagarbarchuk/Dekstop/test3/Networking15.02Escaping/Networking15.02Escaping/ImageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "540">
+               </Location>
+               <Location
+                  uuid = "7C2DC346-0268-46BF-AF58-9E860BCDC48B - b570d29bab4d1f3f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Networking15_02Escaping.ImageViewController.setup() -&gt; ()"
+                  moduleName = "Networking15.02Escaping"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taniagarbarchuk/Dekstop/test3/Networking15.02Escaping/Networking15.02Escaping/ImageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "540">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -7704,10 +7652,42 @@
             filePath = "Networking15.02Escaping/ImageViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "setup()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2FFC9A30-7128-4426-B362-62CAC0D56D46 - b570d29bab4d1f5c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Networking15_02Escaping.ImageViewController.setup() -&gt; ()"
+                  moduleName = "Networking15.02Escaping"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taniagarbarchuk/Dekstop/test3/Networking15.02Escaping/Networking15.02Escaping/ImageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "584">
+               </Location>
+               <Location
+                  uuid = "2FFC9A30-7128-4426-B362-62CAC0D56D46 - b570d29bab4d1f1e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Networking15_02Escaping.ImageViewController.setup() -&gt; ()"
+                  moduleName = "Networking15.02Escaping"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taniagarbarchuk/Dekstop/test3/Networking15.02Escaping/Networking15.02Escaping/ImageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "580">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -7720,10 +7700,42 @@
             filePath = "Networking15.02Escaping/ImageViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "setup()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CFC73B13-AA0B-4A65-8EB7-CC824212828A - b570d29bab4d1f3f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Networking15_02Escaping.ImageViewController.setup() -&gt; ()"
+                  moduleName = "Networking15.02Escaping"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taniagarbarchuk/Dekstop/test3/Networking15.02Escaping/Networking15.02Escaping/ImageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "684">
+               </Location>
+               <Location
+                  uuid = "CFC73B13-AA0B-4A65-8EB7-CC824212828A - b570d29bab4d1fe1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Networking15_02Escaping.ImageViewController.setup() -&gt; ()"
+                  moduleName = "Networking15.02Escaping"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taniagarbarchuk/Dekstop/test3/Networking15.02Escaping/Networking15.02Escaping/ImageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "1076">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -7736,10 +7748,42 @@
             filePath = "Networking15.02Escaping/ImageViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "setup()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4149D077-EB66-4ABF-B79C-B7EE8CB6DA21 - b570d29bab4d1f1e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Networking15_02Escaping.ImageViewController.setup() -&gt; ()"
+                  moduleName = "Networking15.02Escaping"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taniagarbarchuk/Dekstop/test3/Networking15.02Escaping/Networking15.02Escaping/ImageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "720">
+               </Location>
+               <Location
+                  uuid = "4149D077-EB66-4ABF-B79C-B7EE8CB6DA21 - b570d29bab4d1fc0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Networking15_02Escaping.ImageViewController.setup() -&gt; ()"
+                  moduleName = "Networking15.02Escaping"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taniagarbarchuk/Dekstop/test3/Networking15.02Escaping/Networking15.02Escaping/ImageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "1116">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -7752,10 +7796,42 @@
             filePath = "Networking15.02Escaping/ImageViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "setup()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EFD19010-AF91-42D9-A231-F2DB12F8015D - b570d29bab4d1fe1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Networking15_02Escaping.ImageViewController.setup() -&gt; ()"
+                  moduleName = "Networking15.02Escaping"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taniagarbarchuk/Dekstop/test3/Networking15.02Escaping/Networking15.02Escaping/ImageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "816">
+               </Location>
+               <Location
+                  uuid = "EFD19010-AF91-42D9-A231-F2DB12F8015D - b570d29bab4d1fa3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Networking15_02Escaping.ImageViewController.setup() -&gt; ()"
+                  moduleName = "Networking15.02Escaping"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taniagarbarchuk/Dekstop/test3/Networking15.02Escaping/Networking15.02Escaping/ImageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "1156">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
