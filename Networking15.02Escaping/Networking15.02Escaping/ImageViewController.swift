@@ -33,14 +33,38 @@ final class ImageViewController: UIViewController {
     }
     weak var delegate: ImageViewControllerDelegate?
     private var activityIndicator = UIActivityIndicatorView(style: .medium)
+    @IBOutlet var imageScrollView: UIScrollView?
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setup()
+
         loadImage()
         configureButton()
+        configureScrollView()
+        setup()
+    }
+    
+    func configureScrollView() {
+        imageScrollView?.translatesAutoresizingMaskIntoConstraints = false
+        imageScrollView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        imageScrollView?.backgroundColor = .clear
+        imageScrollView?.delegate = self
+        view.addSubview(imageScrollView ?? view)
+        if let imageView = imageView {
+            imageScrollView?.addSubview(imageView)
+        }
+        imageScrollView?.maximumZoomScale = 3.0
+        imageScrollView?.minimumZoomScale = 1.0
+        imageScrollView?.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        imageScrollView?.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        imageScrollView?.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        imageScrollView?.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        imageView?.topAnchor.constraint(equalTo: imageScrollView?.topAnchor ?? view.topAnchor, constant: 100).isActive = true
+        imageView?.leadingAnchor.constraint(equalTo: imageScrollView?.leadingAnchor ?? view.leadingAnchor, constant: 20).isActive = true
+        imageView?.bottomAnchor.constraint(equalTo: imageScrollView?.bottomAnchor ?? view.bottomAnchor).isActive = true
+        imageView?.widthAnchor.constraint(equalToConstant: 350).isActive = true
+        imageView?.heightAnchor.constraint(equalToConstant: 500).isActive = true
     }
     
     //MARK: - Func loadImage
@@ -56,24 +80,18 @@ final class ImageViewController: UIViewController {
     private func setup() {
         imageView?.translatesAutoresizingMaskIntoConstraints = false
         imageView?.layer.cornerRadius = Constants.cornerRadius
-        imageView?.contentMode = .scaleAspectFill
         likeButton.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator = UIActivityIndicatorView(frame: CGRect(x: view.center.x, y: view.center.y, width: Constants.indicatorSize, height: Constants.indicatorSize))
         activityIndicator.style = .medium
         activityIndicator.hidesWhenStopped = true
         view.addSubview(activityIndicator)
-        view.addSubview(likeButton)
-        NSLayoutConstraint.activate([
-            likeButton.bottomAnchor.constraint(equalTo: imageView?.bottomAnchor ?? view.bottomAnchor),
-            likeButton.trailingAnchor.constraint(equalTo: imageView?.trailingAnchor ?? view.trailingAnchor),
-            likeButton.widthAnchor.constraint(equalToConstant: Constants.buttonSize),
-            likeButton.heightAnchor.constraint(equalToConstant: Constants.buttonSize)
-        ])
     }
     
     //MARK: - Func configureButton
     private func configureButton() {
+        let likeBarButtonItem = UIBarButtonItem(customView: likeButton)
+        navigationItem.rightBarButtonItem = likeBarButtonItem
         likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         likeButton.tintColor = fetchedImage?.isFavourite ?? false ? .systemRed : .lightGray
         likeButton.addTarget(self, action: #selector(favouriteButtonPressed), for: .touchUpInside)
@@ -85,6 +103,12 @@ final class ImageViewController: UIViewController {
             return
         }
         fetchedImage?.isFavourite.toggle()
+    }
+}
+
+extension ImageViewController: UIScrollViewDelegate {
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return imageView
     }
 }
 

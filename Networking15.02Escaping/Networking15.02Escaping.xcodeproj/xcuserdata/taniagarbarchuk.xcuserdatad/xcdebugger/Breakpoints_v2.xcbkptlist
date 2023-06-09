@@ -6888,7 +6888,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "56FDD00B-AE5B-4258-AD11-13BA1E3D8F60"
+            uuid = "D58AE442-0F46-4A08-893B-DDECC5336C9B"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -6904,7 +6904,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D58AE442-0F46-4A08-893B-DDECC5336C9B"
+            uuid = "90FCE0EF-A5F4-4B4F-BDF9-B0C38B401216"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -6920,7 +6920,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "90FCE0EF-A5F4-4B4F-BDF9-B0C38B401216"
+            uuid = "33A9C73F-20B0-4693-B014-318885BB747B"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -6936,7 +6936,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "33A9C73F-20B0-4693-B014-318885BB747B"
+            uuid = "18A3A9CF-AF8C-46E5-AC19-2FA10FB9D46E"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -6952,22 +6952,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "18A3A9CF-AF8C-46E5-AC19-2FA10FB9D46E"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Networking15.02Escaping/ImageService/ImageService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "fetchingAPIImages(matching:page:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "9C2D7E4D-267A-4AD6-B025-24A75C34B044"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -6975,8 +6959,8 @@
             filePath = "Networking15.02Escaping/ImageService/ImageService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
             landmarkName = "fetchingAPIImages(matching:page:completion:)"
             landmarkType = "7">
             <Locations>
@@ -7038,8 +7022,8 @@
             filePath = "Networking15.02Escaping/ImageService/ImageService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
             landmarkName = "fetchingAPIImages(matching:page:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -7054,8 +7038,8 @@
             filePath = "Networking15.02Escaping/ImageService/ImageService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "fetchingAPIImages(matching:page:completion:)"
             landmarkType = "7">
             <Locations>
@@ -7102,6 +7086,22 @@
             filePath = "Networking15.02Escaping/ImageService/ImageService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "fetchingAPIImages(matching:page:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4D3E923A-1639-4611-8D94-13402EBF9336"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Networking15.02Escaping/ImageService/ImageService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
             startingLineNumber = "38"
             endingLineNumber = "38"
             landmarkName = "fetchingAPIImages(matching:page:completion:)"
@@ -7111,7 +7111,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4D3E923A-1639-4611-8D94-13402EBF9336"
+            uuid = "1863814D-1817-4BC8-B2B6-BAE24570F7F9"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -7127,7 +7127,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1863814D-1817-4BC8-B2B6-BAE24570F7F9"
+            uuid = "93927A19-E018-4153-8E49-5C4E4476ACB7"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -7143,7 +7143,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "93927A19-E018-4153-8E49-5C4E4476ACB7"
+            uuid = "41AEA9A9-F077-4D4D-A742-06503B3B19A3"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -7159,7 +7159,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "41AEA9A9-F077-4D4D-A742-06503B3B19A3"
+            uuid = "3729C5F2-2084-4925-8442-9253A54ECE5A"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -7175,7 +7175,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3729C5F2-2084-4925-8442-9253A54ECE5A"
+            uuid = "6047B697-85B6-4983-A83E-1333BA085A55"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -7191,7 +7191,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6047B697-85B6-4983-A83E-1333BA085A55"
+            uuid = "D2809502-92B1-4839-9476-7B1A4205E628"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -7200,22 +7200,6 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
             endingLineNumber = "44"
-            landmarkName = "fetchingAPIImages(matching:page:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D2809502-92B1-4839-9476-7B1A4205E628"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Networking15.02Escaping/ImageService/ImageService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
             landmarkName = "fetchingAPIImages(matching:page:completion:)"
             landmarkType = "7">
             <Locations>
@@ -7262,8 +7246,8 @@
             filePath = "Networking15.02Escaping/ImageService/ImageService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "fetchingAPIImages(matching:page:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -7278,8 +7262,8 @@
             filePath = "Networking15.02Escaping/ImageService/ImageService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "fetchingAPIImages(matching:page:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -7294,8 +7278,8 @@
             filePath = "Networking15.02Escaping/ImageService/ImageService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "fetchingAPIImages(matching:page:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -7604,8 +7588,8 @@
             filePath = "Networking15.02Escaping/ImageViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "setup()"
             landmarkType = "7">
             <Locations>
@@ -7652,8 +7636,8 @@
             filePath = "Networking15.02Escaping/ImageViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "setup()"
             landmarkType = "7">
             <Locations>
@@ -7700,8 +7684,8 @@
             filePath = "Networking15.02Escaping/ImageViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "setup()"
             landmarkType = "7">
             <Locations>
@@ -7748,8 +7732,8 @@
             filePath = "Networking15.02Escaping/ImageViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "setup()"
             landmarkType = "7">
             <Locations>
@@ -7796,8 +7780,8 @@
             filePath = "Networking15.02Escaping/ImageViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "setup()"
             landmarkType = "7">
             <Locations>
