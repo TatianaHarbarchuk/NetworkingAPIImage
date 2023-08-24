@@ -7,12 +7,17 @@
 
 import UIKit
 
+//protocol ImageViewControllerDelegate: AnyObject {
+//    func didTapLikeButton(url: String, isFavourite: Bool)
+//}
+
 protocol ImageViewControllerDelegate: AnyObject {
-    func didTapLikeButton(url: String, isFavourite: Bool)
+    func  returnImageAsFavorite(with id: Int)
 }
 
 final class ImageViewController: UIViewController {
     
+    //MARK: - Constants
     private struct Constants {
         static let indicatorSize: CGFloat = 40
         static let cornerRadius: CGFloat = 30
@@ -21,31 +26,38 @@ final class ImageViewController: UIViewController {
     
     //MARK: - IBOutlets
     @IBOutlet private var imageView: UIImageView?
+    @IBOutlet var imageScrollView: UIScrollView?
     
     //MARK: - Properties
+    weak var delegate: ImageViewControllerDelegate?
     private var imageURL: String?
     private var likeButton = UIButton(type: .custom)
     var fetchedImage: Hit? {
         didSet {
             likeButton.tintColor = fetchedImage?.isFavourite ?? false ? .systemRed : .lightGray
-            delegate?.didTapLikeButton(url: fetchedImage?.webformatURL ?? "", isFavourite: fetchedImage?.isFavourite ?? false)
+//            delegate?.didTapLikeButton(url: fetchedImage?.webformatURL ?? "", isFavourite: fetchedImage?.isFavourite ?? false)
+            delegate?.returnImageAsFavorite(with: fetchedImage?.id ?? 0)
         }
     }
-    weak var delegate: ImageViewControllerDelegate?
     private var activityIndicator = UIActivityIndicatorView(style: .medium)
-    @IBOutlet var imageScrollView: UIScrollView?
+    private var saveButton = UIButton(type: .custom)
+    private var imageSaver = ImageSaver()
+    private var shareButton = UIButton(type: .custom)
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        FavoriteImageHelper.shared.load()
         loadImage()
         configureButton()
         configureScrollView()
         setup()
+        tabBarController?.tabBar.isHidden = true
     }
     
-    func configureScrollView() {
+    //MARK: - Func configureScrollView
+    private func configureScrollView() {
         imageScrollView?.translatesAutoresizingMaskIntoConstraints = false
         imageScrollView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         imageScrollView?.backgroundColor = .clear
@@ -90,8 +102,18 @@ final class ImageViewController: UIViewController {
     
     //MARK: - Func configureButton
     private func configureButton() {
+        let shareBarButtonItem = UIBarButtonItem(customView: shareButton)
+        shareButton.translatesAutoresizingMaskIntoConstraints = false
+        shareButton.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
+        shareButton.tintColor = .lightGray
+        shareButton.addTarget(self, action: #selector(shareButtonPressed), for: .touchUpInside)
+        let saveBarButtonItem = UIBarButtonItem(customView: saveButton)
+        saveButton.translatesAutoresizingMaskIntoConstraints = false
+        saveButton.setImage(UIImage(systemName: "square.and.arrow.down"), for: .normal)
+        saveButton.tintColor = .lightGray
+        saveButton.addTarget(self, action: #selector(saveButtonPressed), for: .touchUpInside)
         let likeBarButtonItem = UIBarButtonItem(customView: likeButton)
-        navigationItem.rightBarButtonItem = likeBarButtonItem
+        navigationItem.rightBarButtonItems = [likeBarButtonItem, saveBarButtonItem, shareBarButtonItem]
         likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         likeButton.tintColor = fetchedImage?.isFavourite ?? false ? .systemRed : .lightGray
         likeButton.addTarget(self, action: #selector(favouriteButtonPressed), for: .touchUpInside)
@@ -103,12 +125,50 @@ final class ImageViewController: UIViewController {
             return
         }
         fetchedImage?.isFavourite.toggle()
+        guard var isFavorite = fetchedImage?.isFavourite else { return }
+        if isFavorite {
+            guard let fetchedImage = fetchedImage else { return }
+            FavoriteImageHelper.shared.saveFavoriteImages(model: fetchedImage)
+        } else if FavoriteImageHelper.shared.isFavoriteImage(id: fetchedImage?.id ?? 0){
+            FavoriteImageHelper.shared.deleteImage(with: fetchedImage?.id ?? 0)
+        }
+    }
+    
+    @objc private func saveButtonPressed() {
+        guard let image = imageView?.image else { return }
+        imageSaver.delegate = self
+        imageSaver.download(image: image)
+    }
+    
+    @objc private func shareButtonPressed() {
+        guard let image = imageView?.image else { return }
+        let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.present(activityViewController, animated: true)
     }
 }
 
 extension ImageViewController: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return imageView
+    }
+}
+
+extension ImageViewController: ImageSaverDelegate {
+    func isSuccessdownload() {
+        let alertController = UIAlertController(title: "Success!", message: "Images have been successfully added to your gallery", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alertController, animated: true)
+    }
+    
+    func isFailedDownload() {
+        let alertController = UIAlertController(title: "Failed!", message: "Images haven't been added to your gallery", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Settings", style: .default, handler: { _ in
+            guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
+            UIApplication.shared.open(url)
+        }))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(alertController, animated: true)
     }
 }
 

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import CoreData
 
 final class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDelegate {
     
@@ -14,10 +14,11 @@ final class ImageListController: UIViewController, UISearchBarDelegate, UITextFi
     private struct Constants {
         static let indicatorSize: CGFloat = 40
         static let heightCell: CGFloat = 60
+        static let size: Int = 200
     }
     
     //MARK: - @IBOutlet
-    @IBOutlet private var tableView: UITableView?
+    @IBOutlet var collectionView: UICollectionView?
     
     //MARK: - Properties
     private var fetchedImages: [Hit] = []
@@ -35,12 +36,30 @@ final class ImageListController: UIViewController, UISearchBarDelegate, UITextFi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupTableView()
+        if let layout = collectionView?.collectionViewLayout as? CustomCollectionViewLayout {
+            layout.delegate = self
+        }
+        collectionView?.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 10, right: 16)
+        setupCollectionView()
         setupEmptyStateView()
         setupSearchController()
     }
     
-    //MARK: - setupSearchController
+    //MARK: - Func ViewWillAppear
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
+    
+    //MARK: - Func setupCollectionView
+    private func setupCollectionView() {
+        collectionView?.dataSource = self
+        collectionView?.delegate = self
+        collectionView?.register(with: CollectionViewCell.self)
+        collectionView?.register(with: LoaderCollectionViewCell.self)
+    }
+    
+    //MARK: - Func setupSearchController
     private func setupSearchController() {
         searchController.searchBar.delegate = self
         searchController.searchBar.returnKeyType = .search
@@ -50,18 +69,10 @@ final class ImageListController: UIViewController, UISearchBarDelegate, UITextFi
         definesPresentationContext = true
     }
     
-    //MARK: - setupTableView
-    private func setupTableView() {
-        tableView?.delegate = self
-        tableView?.dataSource = self
-        tableView?.register(with: MainImageCell.self)
-        tableView?.register(with: LoadingTableViewCell.self)
-        view.addSubview(emptyStateView)
-        createActivityIndicator()
-    }
-    
-    //MARK: - setupEmptyStateView
+    //MARK: - Func setupEmptyStateView
     private func setupEmptyStateView() {
+        createActivityIndicator()
+        view.addSubview(emptyStateView)
         emptyStateView.translatesAutoresizingMaskIntoConstraints = false
         emptyStateView.set(with: EmptyStateType.noImagesAtAll)
         NSLayoutConstraint.activate([
@@ -72,16 +83,16 @@ final class ImageListController: UIViewController, UISearchBarDelegate, UITextFi
         ])
     }
     
-    //MARK: - createActivityIndicator
+    //MARK: - Func createActivityIndicator
     private func createActivityIndicator() {
         indicator = UIActivityIndicatorView(frame: CGRect(x: .zero, y: .zero, width: Constants.indicatorSize, height: Constants.indicatorSize))
         indicator.style = UIActivityIndicatorView.Style.medium
-        indicator.center = self.tableView?.center ?? view.center
+        indicator.center = self.collectionView?.center ?? view.center
         indicator.hidesWhenStopped = true
         view.addSubview(indicator)
     }
     
-    //MARK: - Load Images
+    //MARK: - Func loadImages
     private func loadImages(matching searchText: String) {
         isLastPage = false
         indicator.startAnimating()
@@ -98,8 +109,8 @@ final class ImageListController: UIViewController, UISearchBarDelegate, UITextFi
                     self.showEmptyView(with: .notExistingImages)
                 } else {
                     self.emptyStateView.isHidden = true
-                    self.tableView?.isHidden = false
-                    self.tableView?.reloadData()
+                    self.collectionView?.isHidden = false
+                    self.collectionView?.reloadData()
                 }
                 self.indicator.stopAnimating()
             }
@@ -120,21 +131,21 @@ final class ImageListController: UIViewController, UISearchBarDelegate, UITextFi
                 }
                 
                 self.fetchedImages.append(contentsOf: result)
-                self.tableView?.reloadData()
+                self.collectionView?.reloadData()
                 self.isLoading = false
             }
         }
     }
     
-    //MARK: - Func reloadTableView
-    private func reloadTableView() {
+    //MARK: - Func reloadCollectionView
+    private func reloadCollectionView() {
         fetchedImages = []
-        tableView?.reloadData()
+        collectionView?.reloadData()
     }
     
     //MARK: - Func showEmptyView
     private func showEmptyView(with images: EmptyStateType) {
-        reloadTableView()
+        reloadCollectionView()
         emptyStateView.set(with: images)
         emptyStateView.isHidden = false
     }
@@ -161,96 +172,99 @@ final class ImageListController: UIViewController, UISearchBarDelegate, UITextFi
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         searchController.searchBar.searchTextField.clearButtonMode = .whileEditing
         showEmptyView(with: .noImagesAtAll)
-        reloadTableView()
+        reloadCollectionView()
         return true
     }
 }
 
-extension ImageListController: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
+extension ImageListController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    //MARK: - numberOfRowsInSection
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let countOfRows = fetchedImages.count
-        
+    //MARK: CollectionViewDataSource
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        let countOfItems = fetchedImages.count
         if fetchedImages.isEmpty || isLastPage {
-            return countOfRows
+            return countOfItems
         } else {
-            return countOfRows + 1
+            return countOfItems + 1
         }
     }
     
-    //MARK: - cellForRowAt
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.row == fetchedImages.count {
-            if let loadingCell = tableView.dequeueReusableCell(withIdentifier: String(describing: LoadingTableViewCell.self), for: indexPath) as? LoadingTableViewCell {
+            if let loadingCell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: LoaderCollectionViewCell.self), for: indexPath) as? LoaderCollectionViewCell {
                 
                 return loadingCell
             }
         } else {
-            if let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: MainImageCell.self), for: indexPath) as? MainImageCell {
-                cell.delegate = self
-                let image = fetchedImages[indexPath.row]
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: CollectionViewCell.self), for: indexPath) as? CollectionViewCell {
+                let image = fetchedImages[indexPath.item]
+                //                cell.delegate = self
                 cell.configureWith(model: image)
                 
                 return cell
             }
         }
-        return UITableViewCell()
+        return UICollectionViewCell()
     }
     
-    //MARK: - Func willDisplay
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if let _ = cell as? LoadingTableViewCell, !isLoading {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let _ = cell as? LoaderCollectionViewCell, !isLoading {
             currentPage += 1
             loadMoreImages()
         }
     }
     
-    //MARK: - heightForRowAt
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == fetchedImages.count {
-            return Constants.heightCell
-        } else {
-            return UIScreen.main.bounds.width
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row != fetchedImages.count {
-            tableView.deselectRow(at: indexPath, animated: true)
+            collectionView.deselectItem(at: indexPath, animated: true)
             performSegue(withIdentifier: "showImageVC", sender: indexPath)
         }
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showImageVC" {
             if let destinationVC = segue.destination as? ImageViewController, let indexPath = sender as? IndexPath {
-                let selectedRow = indexPath.row
+                let selectedRow = indexPath.item
                 let model = fetchedImages[selectedRow]
                 destinationVC.fetchedImage = model
-                destinationVC.delegate = self
+                //                destinationVC.delegate = self
             }
         }
     }
 }
 
-extension ImageListController: MainImageCellDelegate, ImageViewControllerDelegate {
-    func updateImage(imageURL: String, _ isFavourite: Bool) {
-        var model = fetchedImages.first(where: { $0.webformatURL == imageURL })
-        model?.isFavourite = isFavourite
-        guard
-            let index = fetchedImages.firstIndex(where: { $0.webformatURL == imageURL } ),
-            let model = model
-        else { return }
-        fetchedImages[index] = model
-        let indexPath = IndexPath(row: index, section: 0)
-        tableView?.reloadRows(at: [indexPath], with: .automatic)
-    }
-    
-    func didTapLikeButton(url: String, isFavourite: Bool) {
-        updateImage(imageURL: url, isFavourite)
-    }
-    func isFavouriteDidChange(for imageURL: String, _ isFavourite: Bool) {
-        updateImage(imageURL: imageURL, isFavourite)
+//extension ImageListController: ImageViewControllerDelegate, CollectionViewCellDelegate {
+//    func updateImage(imageURL: String, _ isFavourite: Bool) {
+//        var model = fetchedImages.first(where: { $0.webformatURL == imageURL })
+//        model?.isFavourite = isFavourite
+//        guard
+//            let index = fetchedImages.firstIndex(where: { $0.webformatURL == imageURL } ),
+//            let model = model
+//        else { return }
+//        fetchedImages[index] = model
+//        let indexP = IndexPath(item: index, section: 0)
+//        //        let indexPath = IndexPath(row: index, section: 0)
+//        //        tableView?.reloadRows(at: [indexPath], with: .automatic)
+//        collectionView?.reloadItems(at: [indexP])
+//    }
+//
+//    func didTapLikeButton(url: String, isFavourite: Bool) {
+//        updateImage(imageURL: url, isFavourite)
+//    }
+//    func isFavouriteDidChange(for imageURL: String, _ isFavourite: Bool) {
+//        updateImage(imageURL: imageURL, isFavourite)
+//    }
+//}
+
+extension ImageListController : CustomCollectionViewLayoutDelegate {
+    func collectionView(_ collectionView: UICollectionView, sizeForImageAtIndexPath indexPath: IndexPath) -> CGFloat? {
+        if !fetchedImages.indices.contains(indexPath.item) {
+            return nil
+        }
+        
+        let height = CGFloat(fetchedImages[indexPath.item].imageHeight)
+        let width = CGFloat(fetchedImages[indexPath.item].imageWidth)
+        return height / width
     }
 }
 

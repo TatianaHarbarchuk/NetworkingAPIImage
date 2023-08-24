@@ -29,7 +29,6 @@ final class EmptyStateView: UIView {
     
     //MARK: - setupEmptyView
     private func setupEmptyView() {
-        backgroundColor = .clear
         message.textAlignment = .center
         message.textColor = .black
         message.font = UIFont.systemFont(ofSize: 18)
