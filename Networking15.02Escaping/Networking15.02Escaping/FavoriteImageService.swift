@@ -9,19 +9,19 @@ import Foundation
 import CoreData
 
 protocol FavoriteImageHelperProtocol: AnyObject {
-    func addImage( _ image: Photo, at indexPath: IndexPath)
-    func deleteImage(at indexPath: IndexPath)
+    func imageDidAddToFavorite( _ image: Photo, at indexPath: IndexPath)
+    func imageDidDeleteFromFavorite(at indexPath: IndexPath)
 }
 
-class FavoriteImageHelper: NSObject {
+class FavoriteImageService: NSObject {
     
-    static var shared = FavoriteImageHelper()
+    static var shared = FavoriteImageService()
     weak var delegate: FavoriteImageHelperProtocol?
     
     private lazy var fetchedResultsControler: NSFetchedResultsController<Photo> = {
         
         let fetchRequest: NSFetchRequest<Photo> = Photo.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "isFavorite", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         let fetchedResultsController = NSFetchedResultsController<Photo>(fetchRequest: fetchRequest, managedObjectContext: CoreDataManager.shared.managedContext, sectionNameKeyPath: nil, cacheName: nil)
         
@@ -45,10 +45,14 @@ class FavoriteImageHelper: NSObject {
             let predicate = NSPredicate(format: "id == %d AND url == %@", model.id, model.webformatURL)
             request.predicate = predicate
             let numberOfRecords = try context.fetch(request)
+            print("Count \(numberOfRecords.count)")
             if numberOfRecords.isEmpty {
                 let photo = Photo(context: context)
                 photo.id = Int64(model.id)
                 photo.url = model.webformatURL
+                photo.date = Date()
+                photo.isFavorite = model.isFavourite
+                print("Save image \(photo.isFavorite), and id \(photo.id)")
             }
         } catch {
             print("Error saving context \(error)")
@@ -58,6 +62,7 @@ class FavoriteImageHelper: NSObject {
     
     func getImages() -> [FavoriteCellImageModel] {
         let fetchedObjects = fetchedResultsControler.fetchedObjects ?? []
+        print("Get all fav images")
         return fetchedObjects.map{ FavoriteCellImageModel(id: Int($0.id), url: $0.url ?? "", isFavorite: $0.isFavorite)}
     }
     
@@ -71,11 +76,12 @@ class FavoriteImageHelper: NSObject {
         guard let deleteImage = images.first(where: { $0.id == id }) else { return }
         
         CoreDataManager.shared.managedContext.delete(deleteImage)
+        print("Delete image from CoreData")
         CoreDataManager.shared.saveContext()
     }
 }
 
-extension FavoriteImageHelper: NSFetchedResultsControllerDelegate {
+extension FavoriteImageService: NSFetchedResultsControllerDelegate {
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any,
                     at indexPath: IndexPath?,
                     for type: NSFetchedResultsChangeType,
@@ -85,10 +91,10 @@ extension FavoriteImageHelper: NSFetchedResultsControllerDelegate {
         switch type {
         case .insert:
             guard let indexPath = newIndexPath else { break }
-            self.delegate?.addImage(image, at: indexPath)
+            self.delegate?.imageDidAddToFavorite(image, at: indexPath)
         case .delete:
             guard let indexPath = indexPath else { break }
-            self.delegate?.deleteImage(at: indexPath)
+            self.delegate?.imageDidDeleteFromFavorite(at: indexPath)
         case .move, .update:
             return
         @unknown default:

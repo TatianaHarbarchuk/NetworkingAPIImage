@@ -7,12 +7,10 @@
 
 import UIKit
 
-let cache = NSCache<NSString, UIImage>()
-
 extension UIImageView {
-    
     func imageFromURL(_ urlString: String) {
-        if let cachedImage = cache.object(forKey: urlString as NSString) {
+        let cache = CacheService.shared
+        if let cachedImage = cache.returnCachedImage(with: urlString as NSString) {
             self.image = cachedImage
             return
         } else {
@@ -21,7 +19,7 @@ extension UIImageView {
                     guard let data = data, error == nil else { return }
                     DispatchQueue.main.async() { [ weak self ] in
                         self?.image = UIImage(data: data)
-                        cache.setObject(self?.image ?? UIImage(), forKey: urlString as NSString)
+                        CacheService.shared.saveCachedImage(image: self?.image ?? UIImage(), url: urlString as NSString)
                     }
                 }
                 task.resume()

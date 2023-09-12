@@ -8,11 +8,11 @@
 import UIKit
 
 protocol ImageSaverDelegate: AnyObject {
-    func isSuccessdownload()
+    func isSuccessDownload()
     func isFailedDownload()
 }
 
-class ImageSaver: NSObject {
+class ImageLoader: NSObject {
     
     weak var delegate: ImageSaverDelegate?
     
@@ -23,7 +23,7 @@ class ImageSaver: NSObject {
     @objc func saveCompleted(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
         switch error {
         case .none:
-            delegate?.isSuccessdownload()
+            delegate?.isSuccessDownload()
         case .some:
             delegate?.isFailedDownload()
         }

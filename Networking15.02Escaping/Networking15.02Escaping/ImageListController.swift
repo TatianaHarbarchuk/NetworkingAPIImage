@@ -226,35 +226,11 @@ extension ImageListController: UICollectionViewDataSource, UICollectionViewDeleg
             if let destinationVC = segue.destination as? ImageViewController, let indexPath = sender as? IndexPath {
                 let selectedRow = indexPath.item
                 let model = fetchedImages[selectedRow]
-                destinationVC.fetchedImage = model
-                //                destinationVC.delegate = self
+                destinationVC.image = model
             }
         }
     }
 }
-
-//extension ImageListController: ImageViewControllerDelegate, CollectionViewCellDelegate {
-//    func updateImage(imageURL: String, _ isFavourite: Bool) {
-//        var model = fetchedImages.first(where: { $0.webformatURL == imageURL })
-//        model?.isFavourite = isFavourite
-//        guard
-//            let index = fetchedImages.firstIndex(where: { $0.webformatURL == imageURL } ),
-//            let model = model
-//        else { return }
-//        fetchedImages[index] = model
-//        let indexP = IndexPath(item: index, section: 0)
-//        //        let indexPath = IndexPath(row: index, section: 0)
-//        //        tableView?.reloadRows(at: [indexPath], with: .automatic)
-//        collectionView?.reloadItems(at: [indexP])
-//    }
-//
-//    func didTapLikeButton(url: String, isFavourite: Bool) {
-//        updateImage(imageURL: url, isFavourite)
-//    }
-//    func isFavouriteDidChange(for imageURL: String, _ isFavourite: Bool) {
-//        updateImage(imageURL: imageURL, isFavourite)
-//    }
-//}
 
 extension ImageListController : CustomCollectionViewLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, sizeForImageAtIndexPath indexPath: IndexPath) -> CGFloat? {
@@ -267,4 +243,3 @@ extension ImageListController : CustomCollectionViewLayoutDelegate {
         return height / width
     }
 }
-

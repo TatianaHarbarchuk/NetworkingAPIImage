@@ -19,7 +19,7 @@ extension Photo {
     @NSManaged public var id: Int64
     @NSManaged public var url: String?
     @NSManaged public var isFavorite: Bool
-
+    @NSManaged public var date: Date
 }
 
 extension Photo : Identifiable {

@@ -20,11 +20,16 @@ class FavouriteImagesController: UIViewController, UITableViewDelegate {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        FavoriteImageHelper.shared.load()
-        FavoriteImageHelper.shared.delegate = self
-        fetchImages = FavoriteImageHelper.shared.getImages()
+        FavoriteImageService.shared.load()
+        FavoriteImageService.shared.delegate = self
+        fetchImages = FavoriteImageService.shared.getImages()
         setupTableView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            FavoriteImageService.shared.delegate = self
+        }
     
     //MARK: - Func setupTableView
     private func setupTableView() {
@@ -57,13 +62,13 @@ extension FavouriteImagesController: UITableViewDataSource {
 }
 
 extension FavouriteImagesController: FavoriteImageHelperProtocol {
-    func addImage(_ image: Photo, at indexPath: IndexPath) {
+    func imageDidAddToFavorite(_ image: Photo, at indexPath: IndexPath) {
         let indexPath1 = IndexPath(row: indexPath.row, section: 0)
         fetchImages.append(FavoriteCellImageModel(photo: image))
         tableView?.reloadData()
     }
     
-    func deleteImage(at indexPath: IndexPath) {
+    func imageDidDeleteFromFavorite(at indexPath: IndexPath) {
         fetchImages.remove(at: indexPath.row)
         tableView?.deleteRows(at: [indexPath], with: .automatic)
     }

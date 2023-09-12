@@ -10,6 +10,11 @@ import CoreData
 
 class CoreDataManager {
     
+    //MARK: - Constants
+    private struct Constants {
+    static let entityName = "FavoriteImage"
+    }
+    
     //MARK: - Static Property
     static let shared = CoreDataManager()
     
@@ -18,9 +23,9 @@ class CoreDataManager {
         return persistentContainer.viewContext
     }()
     
-    lazy var persistentContainer: NSPersistentContainer = {
+   private lazy var persistentContainer: NSPersistentContainer = {
         
-        let container = NSPersistentContainer(name: "FavoriteImage")
+        let container = NSPersistentContainer(name: Constants.entityName)
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
@@ -35,7 +40,6 @@ class CoreDataManager {
         if context.hasChanges {
             do {
                 try context.save()
-                print("Data is saved")
             } catch {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")

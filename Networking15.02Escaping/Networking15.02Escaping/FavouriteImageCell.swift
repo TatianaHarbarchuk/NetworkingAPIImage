@@ -56,6 +56,6 @@ class FavouriteImageCell: UITableViewCell {
     }
     
     @objc private func favouriteButtonPressed(_ sender: UIButton) {
-        FavoriteImageHelper.shared.deleteImage(with: fetchedImage?.id ?? 0)
+        FavoriteImageService.shared.deleteImage(with: fetchedImage?.id ?? 0)
     }
 }

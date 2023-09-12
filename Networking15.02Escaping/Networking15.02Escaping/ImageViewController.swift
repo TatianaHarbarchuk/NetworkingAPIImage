@@ -7,14 +7,6 @@
 
 import UIKit
 
-//protocol ImageViewControllerDelegate: AnyObject {
-//    func didTapLikeButton(url: String, isFavourite: Bool)
-//}
-
-protocol ImageViewControllerDelegate: AnyObject {
-    func  returnImageAsFavorite(with id: Int)
-}
-
 final class ImageViewController: UIViewController {
     
     //MARK: - Constants
@@ -26,34 +18,34 @@ final class ImageViewController: UIViewController {
     
     //MARK: - IBOutlets
     @IBOutlet private var imageView: UIImageView?
-    @IBOutlet var imageScrollView: UIScrollView?
+    @IBOutlet private var imageScrollView: UIScrollView?
     
     //MARK: - Properties
-    weak var delegate: ImageViewControllerDelegate?
-    private var imageURL: String?
     private var likeButton = UIButton(type: .custom)
-    var fetchedImage: Hit? {
-        didSet {
-            likeButton.tintColor = fetchedImage?.isFavourite ?? false ? .systemRed : .lightGray
-//            delegate?.didTapLikeButton(url: fetchedImage?.webformatURL ?? "", isFavourite: fetchedImage?.isFavourite ?? false)
-            delegate?.returnImageAsFavorite(with: fetchedImage?.id ?? 0)
-        }
-    }
+    var image: Hit?
     private var activityIndicator = UIActivityIndicatorView(style: .medium)
     private var saveButton = UIButton(type: .custom)
-    private var imageSaver = ImageSaver()
+    private var imageLoader = ImageLoader()
     private var shareButton = UIButton(type: .custom)
+    private var isFavorite = false {
+        didSet {
+            likeButton.tintColor = isFavorite ? .systemRed : .lightGray
+        }
+    }
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        FavoriteImageHelper.shared.load()
+        FavoriteImageService.shared.load()
         loadImage()
         configureButton()
         configureScrollView()
         setup()
         tabBarController?.tabBar.isHidden = true
+        if let id = image?.id {
+            isFavorite = FavoriteImageService.shared.isFavoriteImage(id: id)
+        }
     }
     
     //MARK: - Func configureScrollView
@@ -68,21 +60,24 @@ final class ImageViewController: UIViewController {
         }
         imageScrollView?.maximumZoomScale = 3.0
         imageScrollView?.minimumZoomScale = 1.0
-        imageScrollView?.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        imageScrollView?.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        imageScrollView?.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        imageScrollView?.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        imageView?.topAnchor.constraint(equalTo: imageScrollView?.topAnchor ?? view.topAnchor, constant: 100).isActive = true
-        imageView?.leadingAnchor.constraint(equalTo: imageScrollView?.leadingAnchor ?? view.leadingAnchor, constant: 20).isActive = true
-        imageView?.bottomAnchor.constraint(equalTo: imageScrollView?.bottomAnchor ?? view.bottomAnchor).isActive = true
-        imageView?.widthAnchor.constraint(equalToConstant: 350).isActive = true
-        imageView?.heightAnchor.constraint(equalToConstant: 500).isActive = true
+        let constraints: [NSLayoutConstraint] = [
+            imageScrollView?.topAnchor.constraint(equalTo: view.topAnchor),
+            imageScrollView?.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            imageScrollView?.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            imageScrollView?.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            imageView?.topAnchor.constraint(equalTo: imageScrollView?.topAnchor ?? view.topAnchor, constant: 100),
+            imageView?.leadingAnchor.constraint(equalTo: imageScrollView?.leadingAnchor ?? view.leadingAnchor, constant: 20),
+            imageView?.bottomAnchor.constraint(equalTo: imageScrollView?.bottomAnchor ?? view.bottomAnchor),
+            imageView?.widthAnchor.constraint(equalToConstant: 350),
+            imageView?.heightAnchor.constraint(equalToConstant: 500)
+        ].compactMap { $0 }
+        NSLayoutConstraint.activate(constraints)
     }
     
     //MARK: - Func loadImage
     private func loadImage() {
         activityIndicator.startAnimating()
-        if let imageURL = fetchedImage?.webformatURL {
+        if let imageURL = image?.webformatURL {
             imageView?.imageFromURL(imageURL)
         }
         activityIndicator.stopAnimating()
@@ -115,29 +110,23 @@ final class ImageViewController: UIViewController {
         let likeBarButtonItem = UIBarButtonItem(customView: likeButton)
         navigationItem.rightBarButtonItems = [likeBarButtonItem, saveBarButtonItem, shareBarButtonItem]
         likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-        likeButton.tintColor = fetchedImage?.isFavourite ?? false ? .systemRed : .lightGray
         likeButton.addTarget(self, action: #selector(favouriteButtonPressed), for: .touchUpInside)
     }
     
     @objc private func favouriteButtonPressed(_ sender: UIButton) {
-        guard fetchedImage?.isFavourite != nil else {
-            fetchedImage?.isFavourite = true
-            return
-        }
-        fetchedImage?.isFavourite.toggle()
-        guard var isFavorite = fetchedImage?.isFavourite else { return }
+        isFavorite = !isFavorite
+        guard let image = image else { return }
         if isFavorite {
-            guard let fetchedImage = fetchedImage else { return }
-            FavoriteImageHelper.shared.saveFavoriteImages(model: fetchedImage)
-        } else if FavoriteImageHelper.shared.isFavoriteImage(id: fetchedImage?.id ?? 0){
-            FavoriteImageHelper.shared.deleteImage(with: fetchedImage?.id ?? 0)
+            FavoriteImageService.shared.saveFavoriteImages(model: image)
+        } else if FavoriteImageService.shared.isFavoriteImage(id: image.id){
+            FavoriteImageService.shared.deleteImage(with: image.id)
         }
     }
     
     @objc private func saveButtonPressed() {
         guard let image = imageView?.image else { return }
-        imageSaver.delegate = self
-        imageSaver.download(image: image)
+        imageLoader.delegate = self
+        imageLoader.download(image: image)
     }
     
     @objc private func shareButtonPressed() {
@@ -155,7 +144,7 @@ extension ImageViewController: UIScrollViewDelegate {
 }
 
 extension ImageViewController: ImageSaverDelegate {
-    func isSuccessdownload() {
+    func isSuccessDownload() {
         let alertController = UIAlertController(title: "Success!", message: "Images have been successfully added to your gallery", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .default))
         present(alertController, animated: true)
@@ -171,7 +160,3 @@ extension ImageViewController: ImageSaverDelegate {
         present(alertController, animated: true)
     }
 }
-
-
-
-
