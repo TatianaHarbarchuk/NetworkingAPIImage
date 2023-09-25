@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class FavouriteImagesController: UIViewController, UITableViewDelegate {
+final class FavoriteImagesController: UIViewController, UITableViewDelegate {
     //MARK: - IBOutlets
     @IBOutlet private var tableView: UITableView?
     
@@ -26,20 +26,15 @@ class FavouriteImagesController: UIViewController, UITableViewDelegate {
         setupTableView()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-            super.viewWillAppear(animated)
-            FavoriteImageService.shared.delegate = self
-        }
-    
     //MARK: - Func setupTableView
     private func setupTableView() {
-        tableView?.register(with: FavouriteImageCell.self)
+        tableView?.register(with: FavoriteImageCell.self)
         tableView?.dataSource = self
         tableView?.delegate = self
     }
 }
 
-extension FavouriteImagesController: UITableViewDataSource {
+extension FavoriteImagesController: UITableViewDataSource {
     
     //MARK: - TableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,7 +42,7 @@ extension FavouriteImagesController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: FavouriteImageCell.self), for: indexPath) as? FavouriteImageCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: FavoriteImageCell.self), for: indexPath) as? FavoriteImageCell {
             let image = fetchImages[indexPath.row]
             cell.configureWith(model: image)
             
@@ -61,9 +56,8 @@ extension FavouriteImagesController: UITableViewDataSource {
     }
 }
 
-extension FavouriteImagesController: FavoriteImageHelperProtocol {
+extension FavoriteImagesController: FavoriteImageHelperProtocol {
     func imageDidAddToFavorite(_ image: Photo, at indexPath: IndexPath) {
-        let indexPath1 = IndexPath(row: indexPath.row, section: 0)
         fetchImages.append(FavoriteCellImageModel(photo: image))
         tableView?.reloadData()
     }

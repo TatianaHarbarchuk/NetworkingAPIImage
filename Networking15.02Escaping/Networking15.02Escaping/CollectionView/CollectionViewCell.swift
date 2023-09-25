@@ -11,7 +11,7 @@ protocol CollectionViewCellDelegate: AnyObject {
     func isFavouriteDidChange(for imageURL: String, _ isFavourite: Bool)
 }
 
-class CollectionViewCell: UICollectionViewCell {
+final class CollectionViewCell: UICollectionViewCell {
     
     //MARK: - Constants
     private struct Constants {

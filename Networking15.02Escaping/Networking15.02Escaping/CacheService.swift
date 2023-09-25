@@ -13,24 +13,29 @@ class CacheService {
     
     //MARK: - Private Property
     private var cache = NSCache<NSString, UIImage>()
+    private var keys: [String] = []
     private var elementCount = 0
     private var maxElementCount = 100
     
     //MARK: - Public Func
-    func saveCachedImage(image: UIImage, url: NSString) {
-        cache.setObject(image, forKey: url)
+    func saveCachedImage(image: UIImage?, url: String) {
+        if elementCount >= maxElementCount {
+            clearCache()
+        }
+        guard let image = image else { return }
+        cache.setObject(image, forKey: url as NSString)
+        keys.append(url)
         elementCount += 1
-        clearCache()
     }
     
-    func returnCachedImage(with url: NSString) -> UIImage? {
-        cache.object(forKey: url)
+    func returnCachedImage(with url: String) -> UIImage? {
+        cache.object(forKey: url as NSString)
     }
     
     func clearCache() {
-        if elementCount >= maxElementCount {
-            cache.removeAllObjects()
-            elementCount = 0
+        if let firstImage = keys.first {
+            cache.removeObject(forKey: firstImage as NSString)
+            keys.removeFirst()
         }
     }
 }

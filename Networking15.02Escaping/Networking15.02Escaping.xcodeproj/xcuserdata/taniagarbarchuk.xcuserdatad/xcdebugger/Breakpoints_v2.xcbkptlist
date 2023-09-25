@@ -402,8 +402,8 @@
             filePath = "Networking15.02Escaping/FavouriteImagesController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "imageDidAddToFavorite(_:at:)"
             landmarkType = "7">
             <Locations>
@@ -436,6 +436,21 @@
                   startingLineNumber = "68"
                   endingLineNumber = "68"
                   offsetFromSymbolStart = "348">
+               </Location>
+               <Location
+                  uuid = "875C5304-3DC2-49AC-88CB-CD20207E2715 - 983ce8d0f44bc75d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Networking15_02Escaping.FavouriteImagesController.imageDidAddToFavorite(_: Networking15_02Escaping.Photo, at: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "Networking15.02Escaping"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taniagarbarchuk/Dekstop/test3/Networking15.02Escaping/Networking15.02Escaping/FavouriteImagesController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "168">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -530,6 +545,36 @@
                   endingLineNumber = "124"
                   offsetFromSymbolStart = "612">
                </Location>
+               <Location
+                  uuid = "EDE574ED-B007-46C8-9254-12823F90AE0F - d509d9fc7fe6c5fe"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Networking15_02Escaping.ImageViewController.favouriteButtonPressed(__C.UIButton) -&gt; ()"
+                  moduleName = "Networking15.02Escaping"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taniagarbarchuk/Dekstop/test3/Networking15.02Escaping/Networking15.02Escaping/ImageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "121"
+                  endingLineNumber = "121"
+                  offsetFromSymbolStart = "548">
+               </Location>
+               <Location
+                  uuid = "EDE574ED-B007-46C8-9254-12823F90AE0F - d509d9fc7fe6c5fe"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Networking15_02Escaping.ImageViewController.favouriteButtonPressed(__C.UIButton) -&gt; ()"
+                  moduleName = "Networking15.02Escaping"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taniagarbarchuk/Dekstop/test3/Networking15.02Escaping/Networking15.02Escaping/ImageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "121"
+                  endingLineNumber = "121"
+                  offsetFromSymbolStart = "516">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -591,8 +636,8 @@
             filePath = "Networking15.02Escaping/FavoriteImageService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "saveFavoriteImages(model:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -607,8 +652,8 @@
             filePath = "Networking15.02Escaping/FavoriteImageService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "saveFavoriteImages(model:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -623,8 +668,8 @@
             filePath = "Networking15.02Escaping/FavoriteImageService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "saveFavoriteImages(model:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -719,6 +764,36 @@
                   endingLineNumber = "122"
                   offsetFromSymbolStart = "440">
                </Location>
+               <Location
+                  uuid = "CBD795C6-7990-4A3A-AF1E-838478913704 - d509d9fc7fe6c63c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Networking15_02Escaping.ImageViewController.favouriteButtonPressed(__C.UIButton) -&gt; ()"
+                  moduleName = "Networking15.02Escaping"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taniagarbarchuk/Dekstop/test3/Networking15.02Escaping/Networking15.02Escaping/ImageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "380">
+               </Location>
+               <Location
+                  uuid = "CBD795C6-7990-4A3A-AF1E-838478913704 - d509d9fc7fe6c63c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Networking15_02Escaping.ImageViewController.favouriteButtonPressed(__C.UIButton) -&gt; ()"
+                  moduleName = "Networking15.02Escaping"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taniagarbarchuk/Dekstop/test3/Networking15.02Escaping/Networking15.02Escaping/ImageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "368">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -811,6 +886,36 @@
                   startingLineNumber = "123"
                   endingLineNumber = "123"
                   offsetFromSymbolStart = "512">
+               </Location>
+               <Location
+                  uuid = "F2664D4F-E1D5-4773-97D6-2C0F0E5D5942 - d509d9fc7fe6c5df"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Networking15_02Escaping.ImageViewController.favouriteButtonPressed(__C.UIButton) -&gt; ()"
+                  moduleName = "Networking15.02Escaping"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taniagarbarchuk/Dekstop/test3/Networking15.02Escaping/Networking15.02Escaping/ImageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "452">
+               </Location>
+               <Location
+                  uuid = "F2664D4F-E1D5-4773-97D6-2C0F0E5D5942 - d509d9fc7fe6c5df"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Networking15_02Escaping.ImageViewController.favouriteButtonPressed(__C.UIButton) -&gt; ()"
+                  moduleName = "Networking15.02Escaping"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taniagarbarchuk/Dekstop/test3/Networking15.02Escaping/Networking15.02Escaping/ImageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "440">
                </Location>
             </Locations>
          </BreakpointContent>

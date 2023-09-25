@@ -12,7 +12,7 @@ protocol ImageSaverDelegate: AnyObject {
     func isFailedDownload()
 }
 
-class ImageLoader: NSObject {
+final class ImageLoader: NSObject {
     
     weak var delegate: ImageSaverDelegate?
     

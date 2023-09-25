@@ -11,7 +11,7 @@ protocol CustomCollectionViewLayoutDelegate: AnyObject {
     func collectionView(_ collectionView: UICollectionView, sizeForImageAtIndexPath indexPath: IndexPath) -> CGFloat?
 }
 
-class CustomCollectionViewLayout:UICollectionViewLayout {
+final class CustomCollectionViewLayout:UICollectionViewLayout {
     
     //MARK: - Constants
     private struct Constants {

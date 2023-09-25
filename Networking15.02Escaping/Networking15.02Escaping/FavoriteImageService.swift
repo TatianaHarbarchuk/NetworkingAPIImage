@@ -13,7 +13,7 @@ protocol FavoriteImageHelperProtocol: AnyObject {
     func imageDidDeleteFromFavorite(at indexPath: IndexPath)
 }
 
-class FavoriteImageService: NSObject {
+final class FavoriteImageService: NSObject {
     
     static var shared = FavoriteImageService()
     weak var delegate: FavoriteImageHelperProtocol?
@@ -45,14 +45,12 @@ class FavoriteImageService: NSObject {
             let predicate = NSPredicate(format: "id == %d AND url == %@", model.id, model.webformatURL)
             request.predicate = predicate
             let numberOfRecords = try context.fetch(request)
-            print("Count \(numberOfRecords.count)")
             if numberOfRecords.isEmpty {
                 let photo = Photo(context: context)
                 photo.id = Int64(model.id)
                 photo.url = model.webformatURL
                 photo.date = Date()
                 photo.isFavorite = model.isFavourite
-                print("Save image \(photo.isFavorite), and id \(photo.id)")
             }
         } catch {
             print("Error saving context \(error)")
@@ -62,7 +60,6 @@ class FavoriteImageService: NSObject {
     
     func getImages() -> [FavoriteCellImageModel] {
         let fetchedObjects = fetchedResultsControler.fetchedObjects ?? []
-        print("Get all fav images")
         return fetchedObjects.map{ FavoriteCellImageModel(id: Int($0.id), url: $0.url ?? "", isFavorite: $0.isFavorite)}
     }
     
@@ -76,7 +73,6 @@ class FavoriteImageService: NSObject {
         guard let deleteImage = images.first(where: { $0.id == id }) else { return }
         
         CoreDataManager.shared.managedContext.delete(deleteImage)
-        print("Delete image from CoreData")
         CoreDataManager.shared.saveContext()
     }
 }

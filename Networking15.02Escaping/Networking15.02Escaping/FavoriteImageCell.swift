@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavouriteImageCell: UITableViewCell {
+final class FavoriteImageCell: UITableViewCell {
     
     //MARK: - IBOutlets
     @IBOutlet private var imgView: UIImageView?
@@ -51,8 +51,8 @@ class FavouriteImageCell: UITableViewCell {
     }
     
     func configureWith(model: FavoriteCellImageModel) {
-        imgView?.imageFromURL(model.url)
-        fetchedImage = model
+            imgView?.imageFromURL(model.url)
+            fetchedImage = model
     }
     
     @objc private func favouriteButtonPressed(_ sender: UIButton) {
