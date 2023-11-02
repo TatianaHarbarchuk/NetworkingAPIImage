@@ -26,10 +26,6 @@ final class CollectionViewCell: UICollectionViewCell {
     weak var delegate: CollectionViewCellDelegate?
     
     //MARK: - Lifecycle
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
     override func prepareForReuse() {
         super.prepareForReuse()
         imageView?.image = nil

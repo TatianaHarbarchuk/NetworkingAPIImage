@@ -36,10 +36,6 @@ final class ImageListController: UIViewController, UISearchBarDelegate, UITextFi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let layout = collectionView?.collectionViewLayout as? CustomCollectionViewLayout {
-            layout.delegate = self
-        }
-        collectionView?.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 10, right: 16)
         setupCollectionView()
         setupEmptyStateView()
         setupSearchController()
@@ -57,6 +53,10 @@ final class ImageListController: UIViewController, UISearchBarDelegate, UITextFi
         collectionView?.delegate = self
         collectionView?.register(with: CollectionViewCell.self)
         collectionView?.register(with: LoaderCollectionViewCell.self)
+        if let layout = collectionView?.collectionViewLayout as? CustomCollectionViewLayout {
+            layout.delegate = self
+        }
+        collectionView?.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 10, right: 16)
     }
     
     //MARK: - Func setupSearchController

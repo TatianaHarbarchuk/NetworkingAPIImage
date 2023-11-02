@@ -9,17 +9,20 @@ import UIKit
 
 class CacheService {
     
+    //MARK: - Constants
+    private struct Constants {
+        static let maxElementCount = 100
+    }
     static let shared = CacheService()
     
     //MARK: - Private Property
     private var cache = NSCache<NSString, UIImage>()
     private var keys: [String] = []
     private var elementCount = 0
-    private var maxElementCount = 100
     
     //MARK: - Public Func
     func saveCachedImage(image: UIImage?, url: String) {
-        if elementCount >= maxElementCount {
+        if elementCount >= Constants.maxElementCount {
             clearCache()
         }
         guard let image = image else { return }
