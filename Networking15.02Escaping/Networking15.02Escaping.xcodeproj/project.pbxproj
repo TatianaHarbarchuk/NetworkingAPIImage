@@ -22,6 +22,7 @@
 		390FD821299D373C0035374F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390FD820299D373C0035374F /* Model.swift */; };
 		390FD827299EB1D90035374F /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390FD826299EB1D90035374F /* ImageService.swift */; };
 		392023872AC1B067009656B7 /* FavoriteImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39089AC72A79366800C338AB /* FavoriteImageCell.xib */; };
+		392547682B0FAC9900C52F14 /* LocalNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392547672B0FAC9900C52F14 /* LocalNotifications.swift */; };
 		396582CD2AA75E9200857DE8 /* CacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396582CC2AA75E9200857DE8 /* CacheService.swift */; };
 		3967A87129D6189700FD7252 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3967A87029D6189700FD7252 /* UITableView+Extensions.swift */; };
 		3967A87329DC474600FD7252 /* EmptyViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3967A87229DC474600FD7252 /* EmptyViewProtocol.swift */; };
@@ -58,6 +59,7 @@
 		390FD81A299D36C00035374F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		390FD820299D373C0035374F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		390FD826299EB1D90035374F /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		392547672B0FAC9900C52F14 /* LocalNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotifications.swift; sourceTree = "<group>"; };
 		396582CC2AA75E9200857DE8 /* CacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheService.swift; sourceTree = "<group>"; };
 		3967A87029D6189700FD7252 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		3967A87229DC474600FD7252 /* EmptyViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewProtocol.swift; sourceTree = "<group>"; };
@@ -108,30 +110,103 @@
 		390FD80B299D36BE0035374F /* Networking15.02Escaping */ = {
 			isa = PBXGroup;
 			children = (
-				39AF91BA2A373812005DBE50 /* CollectionView */,
+				392547702B0FBFAA00C52F14 /* Application */,
+				392547722B0FC08900C52F14 /* Controllers */,
+				392547732B0FC0C400C52F14 /* Storyboard */,
 				399DB87E29A77B3E005777D6 /* Model */,
-				399DB87929A7753B005777D6 /* Extension */,
-				390FD80C299D36BE0035374F /* AppDelegate.swift */,
-				390FD80E299D36BE0035374F /* SceneDelegate.swift */,
-				390FD810299D36BE0035374F /* ImageListController.swift */,
-				3967A9B22A0689A900BA4529 /* ImageViewController.swift */,
-				390FD812299D36BE0035374F /* Main.storyboard */,
-				390FD815299D36C00035374F /* Assets.xcassets */,
-				390FD817299D36C00035374F /* LaunchScreen.storyboard */,
-				390FD81A299D36C00035374F /* Info.plist */,
-				3967A87729E0532D00FD7252 /* ImageService */,
+				392547712B0FBFCA00C52F14 /* Resources */,
 				3967A87629E0526200FD7252 /* EmptyState */,
-				39AF91C12A39F094005DBE50 /* CustomCollectionViewLayout.swift */,
-				39AF91C32A41C408005DBE50 /* ImageLoader.swift */,
-				39AF91C92A55874E005DBE50 /* FavoriteImagesController.swift */,
-				39089ABB2A68232400C338AB /* CoreDataManager.swift */,
-				39089ABD2A6830AB00C338AB /* FavoriteImage.xcdatamodeld */,
-				39089AC62A79366800C338AB /* FavoriteImageCell.swift */,
-				39089AC72A79366800C338AB /* FavoriteImageCell.xib */,
-				39089ACC2A7ABA9A00C338AB /* FavoriteImageService.swift */,
-				396582CC2AA75E9200857DE8 /* CacheService.swift */,
+				3925476F2B0FBF5500C52F14 /* CoreData */,
+				3925476E2B0FBF1600C52F14 /* TableView */,
+				39AF91BA2A373812005DBE50 /* CollectionView */,
+				3925476D2B0FBF0200C52F14 /* CustomLayout */,
+				3925476C2B0FBE9E00C52F14 /* Services */,
+				3925476B2B0FBE2700C52F14 /* Notifications */,
+				399DB87929A7753B005777D6 /* Extension */,
 			);
 			path = Networking15.02Escaping;
+			sourceTree = "<group>";
+		};
+		3925476B2B0FBE2700C52F14 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				392547672B0FAC9900C52F14 /* LocalNotifications.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		3925476C2B0FBE9E00C52F14 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				39AF91C32A41C408005DBE50 /* ImageLoader.swift */,
+				390FD826299EB1D90035374F /* ImageService.swift */,
+				396582CC2AA75E9200857DE8 /* CacheService.swift */,
+				39089ACC2A7ABA9A00C338AB /* FavoriteImageService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		3925476D2B0FBF0200C52F14 /* CustomLayout */ = {
+			isa = PBXGroup;
+			children = (
+				39AF91C12A39F094005DBE50 /* CustomCollectionViewLayout.swift */,
+			);
+			path = CustomLayout;
+			sourceTree = "<group>";
+		};
+		3925476E2B0FBF1600C52F14 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				39089AC62A79366800C338AB /* FavoriteImageCell.swift */,
+				39089AC72A79366800C338AB /* FavoriteImageCell.xib */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		3925476F2B0FBF5500C52F14 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				39089ABB2A68232400C338AB /* CoreDataManager.swift */,
+				39089ABD2A6830AB00C338AB /* FavoriteImage.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		392547702B0FBFAA00C52F14 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				390FD80C299D36BE0035374F /* AppDelegate.swift */,
+				390FD80E299D36BE0035374F /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		392547712B0FBFCA00C52F14 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				390FD817299D36C00035374F /* LaunchScreen.storyboard */,
+				390FD815299D36C00035374F /* Assets.xcassets */,
+				390FD81A299D36C00035374F /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		392547722B0FC08900C52F14 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				390FD810299D36BE0035374F /* ImageListController.swift */,
+				3967A9B22A0689A900BA4529 /* ImageViewController.swift */,
+				39AF91C92A55874E005DBE50 /* FavoriteImagesController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		392547732B0FC0C400C52F14 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				390FD812299D36BE0035374F /* Main.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		3967A87629E0526200FD7252 /* EmptyState */ = {
@@ -141,14 +216,6 @@
 				39AC36A029C4B538008BD436 /* EmptyStateView.swift */,
 			);
 			path = EmptyState;
-			sourceTree = "<group>";
-		};
-		3967A87729E0532D00FD7252 /* ImageService */ = {
-			isa = PBXGroup;
-			children = (
-				390FD826299EB1D90035374F /* ImageService.swift */,
-			);
-			path = ImageService;
 			sourceTree = "<group>";
 		};
 		399DB87929A7753B005777D6 /* Extension */ = {
@@ -279,6 +346,7 @@
 				399DB87B29A7756A005777D6 /* UIImageView+Extensions.swift in Sources */,
 				39AF91C42A41C408005DBE50 /* ImageLoader.swift in Sources */,
 				39AF91B82A3737EA005DBE50 /* CollectionViewCell.swift in Sources */,
+				392547682B0FAC9900C52F14 /* LocalNotifications.swift in Sources */,
 				3967A87329DC474600FD7252 /* EmptyViewProtocol.swift in Sources */,
 				390FD827299EB1D90035374F /* ImageService.swift in Sources */,
 				39089ABC2A68232400C338AB /* CoreDataManager.swift in Sources */,
@@ -431,7 +499,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Networking15.02Escaping/Info.plist;
+				INFOPLIST_FILE = Networking15.02Escaping/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -458,7 +526,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Networking15.02Escaping/Info.plist;
+				INFOPLIST_FILE = Networking15.02Escaping/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

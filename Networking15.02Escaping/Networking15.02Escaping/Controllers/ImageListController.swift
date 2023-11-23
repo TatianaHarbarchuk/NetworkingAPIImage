@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-final class ImageListController: UIViewController, UISearchBarDelegate, UITextFieldDelegate {
+final class ImageListController:  UIViewController, UISearchBarDelegate, UITextFieldDelegate {
     
     //MARK: - Constants
     private struct Constants {

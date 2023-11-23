@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M2X-KY-ivh">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -135,11 +136,11 @@
             </objects>
             <point key="canvasLocation" x="91" y="73"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--All Images-->
         <scene sceneID="LER-h1-9zq">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LAd-Th-yMs" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="grh-Xn-LPO"/>
+                    <tabBarItem key="tabBarItem" title="All Images" image="photo.fill" catalog="system" id="grh-Xn-LPO"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="MEf-gI-RS5"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Tfm-yW-hGn">
@@ -176,6 +177,7 @@
     </scenes>
     <resources>
         <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="photo.fill" catalog="system" width="128" height="93"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

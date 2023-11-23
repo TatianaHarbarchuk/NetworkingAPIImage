@@ -13,11 +13,6 @@ protocol CollectionViewCellDelegate: AnyObject {
 
 final class CollectionViewCell: UICollectionViewCell {
     
-    //MARK: - Constants
-    private struct Constants {
-        static let size: CGFloat = 36
-        static let cornerRadius: CGFloat = 10
-    }
     //MARK: - IBOutlets
     @IBOutlet private weak var imageView: UIImageView?
     
