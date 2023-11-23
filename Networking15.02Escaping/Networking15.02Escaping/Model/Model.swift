@@ -15,25 +15,22 @@ struct Image: Codable {
 
 // MARK: - Hit
 struct Hit: Codable {
-    let id: Int
-    let pageURL: String
-    let type: String
-    let tags: String
-    let previewURL: String
-    let previewWidth, previewHeight: Int
-    let webformatURL: String
-    let webformatWidth, webformatHeight: Int
-    let largeImageURL: String
-    let imageWidth, imageHeight, imageSize, views: Int
-    let downloads, collections, likes, comments: Int
-    let userID: Int
-    let user: String
-    let userImageURL: String
-
+    var isFavourite: Bool
+    var id: Int
+    var webformatURL: String
+    var imageWidth, imageHeight: Int
+    
     enum CodingKeys: String, CodingKey {
-        case id, pageURL, type, tags, previewURL, previewWidth, previewHeight, webformatURL, webformatWidth, webformatHeight, largeImageURL, imageWidth, imageHeight, imageSize, views, downloads, collections, likes, comments
-        case userID = "user_id"
-        case user, userImageURL
+        case isFavourite, id, webformatURL, imageWidth, imageHeight
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.isFavourite = false
+        self.id = try container.decode(Int.self, forKey: .id)
+        self.webformatURL = try container.decode(String.self, forKey: .webformatURL)
+        self.imageWidth = try container.decode(Int.self, forKey: .imageWidth)
+        self.imageHeight = try container.decode(Int.self, forKey: .imageHeight)
     }
 }
 
